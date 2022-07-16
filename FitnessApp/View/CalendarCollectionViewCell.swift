@@ -53,6 +53,10 @@ class CalendarCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+}
+
+// MARK: - Setup view and set constraints
+extension CalendarCollectionViewCell {
     private func setupViews() {
         addSubview(dayOfWeekLabel)
         addSubview(numberOfDayLabel)
@@ -69,6 +73,4 @@ class CalendarCollectionViewCell: UICollectionViewCell {
             numberOfDayLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5)
         ])
     }
-    
-    
 }
