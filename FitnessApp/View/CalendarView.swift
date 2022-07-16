@@ -49,7 +49,7 @@ class CalendarView: UIView {
         setConstraints()
         setDelegate()
         
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: identifierCollectionCell)
+        collectionView.register(CalendarCollectionViewCell.self, forCellWithReuseIdentifier: identifierCollectionCell)
     }
     
     required init?(coder: NSCoder) {
@@ -103,7 +103,7 @@ class CalendarView: UIView {
 
 extension CalendarView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("collectionViewTapp")
+        print("\(indexPath)")
     }
 
 }
@@ -114,7 +114,7 @@ extension CalendarView: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifierCollectionCell, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifierCollectionCell, for: indexPath) as! CalendarCollectionViewCell
         
         return cell
     }

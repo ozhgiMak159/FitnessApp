@@ -43,5 +43,32 @@ class CalendarCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupViews()
+        setConstraints()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setupViews() {
+        addSubview(dayOfWeekLabel)
+        addSubview(numberOfDayLabel)
+    }
+    
+    private func setConstraints() {
+        NSLayoutConstraint.activate([
+            dayOfWeekLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            dayOfWeekLabel.topAnchor.constraint(equalTo: topAnchor, constant: 7)
+        ])
+        
+        NSLayoutConstraint.activate([
+            numberOfDayLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            numberOfDayLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5)
+        ])
+    }
+    
     
 }
