@@ -23,6 +23,7 @@
 		B5AC0CE3288288520045FBB5 /* StatisticViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AC0CE2288288520045FBB5 /* StatisticViewController.swift */; };
 		B5AC0CE5288288700045FBB5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AC0CE4288288700045FBB5 /* ProfileViewController.swift */; };
 		B5AC0CE7288294B60045FBB5 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AC0CE6288294B60045FBB5 /* CalendarView.swift */; };
+		B5AC0CE92882C9DF0045FBB5 /* CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AC0CE82882C9DF0045FBB5 /* CalendarCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		B5AC0CE2288288520045FBB5 /* StatisticViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticViewController.swift; sourceTree = "<group>"; };
 		B5AC0CE4288288700045FBB5 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		B5AC0CE6288294B60045FBB5 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		B5AC0CE82882C9DF0045FBB5 /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				B5AC0CE6288294B60045FBB5 /* CalendarView.swift */,
+				B5AC0CE82882C9DF0045FBB5 /* CalendarCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 			files = (
 				B5AC0CD72882858E0045FBB5 /* UIFont + Extensions.swift in Sources */,
 				B5AC0CDD288285DA0045FBB5 /* UIStackView + Extensions .swift in Sources */,
+				B5AC0CE92882C9DF0045FBB5 /* CalendarCollectionViewCell.swift in Sources */,
 				B5AC0CE7288294B60045FBB5 /* CalendarView.swift in Sources */,
 				B5AC0CB82882801E0045FBB5 /* MainTabBarController.swift in Sources */,
 				B5AC0CE3288288520045FBB5 /* StatisticViewController.swift in Sources */,
