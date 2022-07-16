@@ -18,7 +18,7 @@ class MainTabBarController: UITabBarController {
     private func setupTabBar() {
         tabBar.backgroundColor = .specialTabBar
         tabBar.tintColor = .specialDarkGreen
-        tabBar.unselectedItemTintColor = .specialGray
+        tabBar.unselectedItemTintColor = .specialGray.withAlphaComponent(0.7)
         tabBar.layer.borderWidth = 1
         tabBar.layer.borderColor = UIColor.specialLightBrown.cgColor
     }
@@ -39,7 +39,6 @@ class MainTabBarController: UITabBarController {
         items[0].image = UIImage(named: "tabBarMain")
         items[1].image = UIImage(named: "tabBarStatistic")
         items[2].image = UIImage(named: "tabBarProfile")
-        
         
         UITabBarItem.appearance().titlePositionAdjustment = .init(horizontal: 0, vertical: 5)
         UITabBarItem.appearance().setTitleTextAttributes([.font: UIFont(name: "Roboto-Bold", size: 14) as Any], for: .normal)
