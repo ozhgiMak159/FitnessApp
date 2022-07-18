@@ -12,7 +12,7 @@ class DateAndRepeatView: UIView {
     private let dateLabel: UILabel = {
        let label = UILabel()
         label.text = "Date"
-        label.font = .robotoMedium18()
+        label.font = .robotoMedium22()
         label.textColor = .specialGray
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -29,7 +29,7 @@ class DateAndRepeatView: UIView {
     private let repeatLabel: UILabel = {
         let label = UILabel()
         label.text = "Repeat every 7 days"
-        label.font = .robotoMedium18()
+        label.font = .robotoMedium22()
         label.textColor = .specialGray
         label.translatesAutoresizingMaskIntoConstraints = false
         return label

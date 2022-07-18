@@ -28,6 +28,7 @@
 		B5D45108288530570011665E /* WorkoutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D45107288530570011665E /* WorkoutTableViewCell.swift */; };
 		B5D4510B288537130011665E /* DateAndReapeatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D4510A288537130011665E /* DateAndReapeatView.swift */; };
 		B5D4510D288545300011665E /* NewWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D4510C288545300011665E /* NewWorkoutViewController.swift */; };
+		B5D4510F288560850011665E /* RepsOrTimers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D4510E288560850011665E /* RepsOrTimers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		B5D45107288530570011665E /* WorkoutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTableViewCell.swift; sourceTree = "<group>"; };
 		B5D4510A288537130011665E /* DateAndReapeatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateAndReapeatView.swift; sourceTree = "<group>"; };
 		B5D4510C288545300011665E /* NewWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewWorkoutViewController.swift; sourceTree = "<group>"; };
+		B5D4510E288560850011665E /* RepsOrTimers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepsOrTimers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				B5D4510A288537130011665E /* DateAndReapeatView.swift */,
+				B5D4510E288560850011665E /* RepsOrTimers.swift */,
 			);
 			path = NewWorkoutVC;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 				B5AC0CB42882801E0045FBB5 /* AppDelegate.swift in Sources */,
 				B5D4510D288545300011665E /* NewWorkoutViewController.swift in Sources */,
 				B5AC0CE5288288700045FBB5 /* ProfileViewController.swift in Sources */,
+				B5D4510F288560850011665E /* RepsOrTimers.swift in Sources */,
 				B5AC0CD9288285A50045FBB5 /* UIView + Extensions .swift in Sources */,
 				B5AC0CE1288288330045FBB5 /* MainViewController.swift in Sources */,
 				B5AC0CB62882801E0045FBB5 /* SceneDelegate.swift in Sources */,
