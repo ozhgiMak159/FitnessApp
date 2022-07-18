@@ -45,7 +45,7 @@ class CalendarView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupView()
+        setupView(imagePerson, userNameLabel, collectionView)
         setConstraints()
         setDelegate()
         
@@ -57,15 +57,14 @@ class CalendarView: UIView {
     }
     
     
-    private func setupView() {
+    private func setupView(_ subviews: UIView...) {
         backgroundColor = .specialGreen
         layer.cornerRadius = 10
-        
-        addSubview(imagePerson)
-        addSubview(userNameLabel)
-        addSubview(collectionView)
-        
         translatesAutoresizingMaskIntoConstraints = false
+        
+        subviews.forEach { subview in
+            addSubview(subview)
+        }
     }
     
     private func setDelegate() {

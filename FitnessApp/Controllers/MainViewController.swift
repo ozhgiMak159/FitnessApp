@@ -26,28 +26,20 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
+        setupView(calendarView, addWorkoutButton, weatherView)
         setConstrains()
     }
     
 }
 
-
-
-
-
-
-
-
-
-
 extension MainViewController {
     
-    private func setupView() {
+    private func setupView(_ subviews: UIView...) {
         view.backgroundColor = .specialBackground
-        view.addSubview(calendarView)
-        view.addSubview(addWorkoutButton)
-        view.addSubview(weatherView)
+        
+        subviews.forEach { subview in
+            view.addSubview(subview)
+        }
     }
     
     private func setConstrains() {
