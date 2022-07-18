@@ -25,6 +25,7 @@
 		B5AC0CE7288294B60045FBB5 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AC0CE6288294B60045FBB5 /* CalendarView.swift */; };
 		B5AC0CE92882C9DF0045FBB5 /* CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AC0CE82882C9DF0045FBB5 /* CalendarCollectionViewCell.swift */; };
 		B5D45106288515A10011665E /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D45105288515A10011665E /* WeatherView.swift */; };
+		B5D45108288530570011665E /* WorkoutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D45107288530570011665E /* WorkoutTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		B5AC0CE6288294B60045FBB5 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		B5AC0CE82882C9DF0045FBB5 /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
 		B5D45105288515A10011665E /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
+		B5D45107288530570011665E /* WorkoutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				B5AC0CE82882C9DF0045FBB5 /* CalendarCollectionViewCell.swift */,
+				B5D45107288530570011665E /* WorkoutTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				B5AC0CD9288285A50045FBB5 /* UIView + Extensions .swift in Sources */,
 				B5AC0CE1288288330045FBB5 /* MainViewController.swift in Sources */,
 				B5AC0CB62882801E0045FBB5 /* SceneDelegate.swift in Sources */,
+				B5D45108288530570011665E /* WorkoutTableViewCell.swift in Sources */,
 				B5AC0CDF288286560045FBB5 /* UILabel + Extensions .swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
