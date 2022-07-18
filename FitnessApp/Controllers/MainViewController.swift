@@ -20,6 +20,7 @@ class MainViewController: UIViewController {
         button.tintColor = .specialDarkGreen
         button.setImage(UIImage(named: "addWorkout"), for: .normal)
         button.addShadowOnView()
+        button.addTarget(self, action: #selector(addWorkoutButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -39,8 +40,18 @@ class MainViewController: UIViewController {
         tableView.separatorStyle = .none
         tableView.bounces = false
         tableView.showsVerticalScrollIndicator = false
+        tableView.isHidden = true
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
+    }()
+    
+    private let noWorkoutImageView: UIImageView = {
+       let imageView = UIImageView()
+        imageView.image = UIImage(named: "noWorkout")
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+//        imageView.isHidden = true
+        return imageView
     }()
     
     private let identifierTableCell = "identifierTableCell"
@@ -52,21 +63,28 @@ class MainViewController: UIViewController {
             addWorkoutButton,
             workoutTodayLabel,
             weatherView,
-            tableView
+            tableView,
+            noWorkoutImageView
         )
         
         setConstrains()
         setDelegate()
     }
     
+    
+    @objc private func addWorkoutButtonTapped() {
+        print("123")
+    }
 }
 
+// MARK: - UITableViewDelegate
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         100
     }
 }
 
+// MARK: - UITableViewDataSource
 extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         10
@@ -80,6 +98,7 @@ extension MainViewController: UITableViewDataSource {
     
 }
 
+// MARK: - SetupView or setup constraints
 extension MainViewController {
     
     private func setupView(_ subviews: UIView...) {
@@ -131,6 +150,11 @@ extension MainViewController {
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0)
         ])
         
-        
+        NSLayoutConstraint.activate([
+            noWorkoutImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+            noWorkoutImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+            noWorkoutImageView.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1),
+            noWorkoutImageView.topAnchor.constraint(equalTo: workoutTodayLabel.bottomAnchor, constant: 0)
+        ])
     }
 }
