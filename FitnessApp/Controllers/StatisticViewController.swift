@@ -25,12 +25,16 @@ class StatisticViewController: UIViewController {
         segmentedControl.backgroundColor = .specialGreen
         segmentedControl.selectedSegmentTintColor = .specialYellow
         let font = UIFont(name: "Roboto-Medium", size: 16)
-        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: font as Any,
-                                                 NSAttributedString.Key.foregroundColor: UIColor.white],
-                                                for: .normal)
-        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.font: font as Any,
-                                                 NSAttributedString.Key.foregroundColor: UIColor.specialGray],
-                                                for: .selected)
+        segmentedControl.setTitleTextAttributes(
+            [NSAttributedString.Key.font: font as Any,
+             NSAttributedString.Key.foregroundColor: UIColor.white],
+             for: .normal
+        )
+        segmentedControl.setTitleTextAttributes(
+            [NSAttributedString.Key.font: font as Any,
+             NSAttributedString.Key.foregroundColor: UIColor.specialGray],
+             for: .selected
+        )
         segmentedControl.addTarget(self, action: #selector(segmentChanged), for: .valueChanged)
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
         return segmentedControl
@@ -79,7 +83,7 @@ class StatisticViewController: UIViewController {
             nameTextField, exercisesLabel,
             tableView
         )
-
+        
         setConstraints()
         setDelegate()
     }
@@ -112,7 +116,6 @@ extension StatisticViewController: UITableViewDataSource {
     }
     
 }
-
 
 extension StatisticViewController {
     

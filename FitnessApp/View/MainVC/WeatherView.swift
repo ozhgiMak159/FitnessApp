@@ -48,7 +48,6 @@ class WeatherView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     private func setupView(_ subviews: UIView...) {
         backgroundColor = .white
         layer.cornerRadius = 10
@@ -61,9 +60,7 @@ class WeatherView: UIView {
         
     }
     
-    
     private func setConstraint() {
-        
         NSLayoutConstraint.activate([
             weatherImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
             weatherImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
@@ -86,6 +83,4 @@ class WeatherView: UIView {
         ])
         
     }
-    
-    
 }
