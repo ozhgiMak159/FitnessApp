@@ -59,12 +59,9 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView(
-            calendarView,
-            addWorkoutButton,
-            workoutTodayLabel,
-            weatherView,
-            tableView,
-            noWorkoutImageView
+            calendarView, addWorkoutButton,
+            workoutTodayLabel, weatherView,
+            tableView, noWorkoutImageView
         )
         
         setConstrains()

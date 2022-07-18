@@ -150,47 +150,45 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .specialBackground
-        setView()
+        setView(
+            profileLabel, userPhotoView,
+            userPhotoImageView, userNameLabel,
+            editingButton,
+            collectionView, targetLabel,
+            targetView,
+            progressView
+        )
+
         setConstraints()
         setDelegates()
     }
     
-    
     @objc private func editingButtonTap() {
         
     }
-    
-    
-    
-    
 }
 
 extension ProfileViewController {
-    private func setView() {
+    private func setView(_ subviews: UIView...) {
         view.backgroundColor = .specialBackground
         
-        view.addSubview(profileLabel)
-        view.addSubview(userPhotoView)
-        view.addSubview(userPhotoImageView)
-        view.addSubview(userNameLabel)
-        
-        userParamStackView = UIStackView(arrangedSubviews: [userHeightLabel, userWeightLabel],
-                                         axis: .horizontal,
-                                         spacing: 10)
+        userParamStackView = UIStackView(
+            arrangedSubviews: [userHeightLabel, userWeightLabel],
+            axis: .horizontal,
+            spacing: 10
+        )
         view.addSubview(userParamStackView)
-        view.addSubview(editingButton)
-        view.addSubview(collectionView)
-     //   collectionView.register(ProfileCollectionViewCell.self, forCellWithReuseIdentifier: idProfileCollectionViewCell)
         
-        view.addSubview(targetLabel)
-        
-        targetStackView = UIStackView(arrangedSubviews: [workoutsNowLabel, workoutsTargetLabel],
-                                         axis: .horizontal,
-                                         spacing: 10)
+        targetStackView = UIStackView(
+            arrangedSubviews: [workoutsNowLabel, workoutsTargetLabel],
+            axis: .horizontal,
+            spacing: 10
+        )
         view.addSubview(targetStackView)
-        view.addSubview(targetView)
         
-        view.addSubview(progressView)
+        subviews.forEach { subview in
+            view.addSubview(subview)
+        }
     }
     
     private func setDelegates() {

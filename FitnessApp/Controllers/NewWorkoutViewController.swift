@@ -98,7 +98,14 @@ class NewWorkoutViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .specialBackground
         
-        setupView()
+        setupView(
+            newWorkoutLabel, closeButton,
+            nameLabel, nameTextField,
+            nameRepeatAndDate, dateAndRepeat,
+            repsAndTimersLabel, repsOrTimerView,
+            gymImage, saveButton
+        )
+        
         setConstraints()
     }
     
@@ -113,21 +120,10 @@ class NewWorkoutViewController: UIViewController {
 }
 
 extension NewWorkoutViewController {
-    private func setupView() {
-        view.addSubview(newWorkoutLabel)
-        view.addSubview(closeButton)
-        
-        view.addSubview(nameLabel)
-        view.addSubview(nameTextField)
-        
-        view.addSubview(nameRepeatAndDate)
-        view.addSubview(dateAndRepeat)
-        
-        view.addSubview(repsAndTimersLabel)
-        view.addSubview(repsOrTimerView)
-        
-        view.addSubview(gymImage)
-        view.addSubview(saveButton)
+    private func setupView(_ subviews: UIView...) {
+        subviews.forEach { subview in
+            view.addSubview(subview)
+        }
     }
     
     private func setConstraints() {

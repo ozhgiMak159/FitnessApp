@@ -74,9 +74,12 @@ class StatisticViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .specialBackground
-        
-        setupView()
+        setupView(
+            statisticLabel, segmentedControl,
+            nameTextField, exercisesLabel,
+            tableView
+        )
+
         setConstraints()
         setDelegate()
     }
@@ -113,12 +116,11 @@ extension StatisticViewController: UITableViewDataSource {
 
 extension StatisticViewController {
     
-    private func setupView() {
-        view.addSubview(statisticLabel)
-        view.addSubview(segmentedControl)
-        view.addSubview(nameTextField)
-        view.addSubview(exercisesLabel)
-        view.addSubview(tableView)
+    private func setupView(_ subviews: UIView...) {
+        view.backgroundColor = .specialBackground
+        subviews.forEach { subview in
+            view.addSubview(subview)
+        }
     }
     
     private func setConstraints() {
