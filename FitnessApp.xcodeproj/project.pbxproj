@@ -24,6 +24,7 @@
 		B5AC0CE5288288700045FBB5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AC0CE4288288700045FBB5 /* ProfileViewController.swift */; };
 		B5AC0CE7288294B60045FBB5 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AC0CE6288294B60045FBB5 /* CalendarView.swift */; };
 		B5AC0CE92882C9DF0045FBB5 /* CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AC0CE82882C9DF0045FBB5 /* CalendarCollectionViewCell.swift */; };
+		B5D45106288515A10011665E /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D45105288515A10011665E /* WeatherView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		B5AC0CE4288288700045FBB5 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		B5AC0CE6288294B60045FBB5 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		B5AC0CE82882C9DF0045FBB5 /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
+		B5D45105288515A10011665E /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,8 +110,7 @@
 		B5AC0CC92882811B0045FBB5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B5AC0CE6288294B60045FBB5 /* CalendarView.swift */,
-				B5AC0CE82882C9DF0045FBB5 /* CalendarCollectionViewCell.swift */,
+				B5D45103288515610011665E /* MainVC */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -170,6 +171,24 @@
 				B5AC0CDE288286560045FBB5 /* UILabel + Extensions .swift */,
 			);
 			path = UIKit;
+			sourceTree = "<group>";
+		};
+		B5D45103288515610011665E /* MainVC */ = {
+			isa = PBXGroup;
+			children = (
+				B5D45104288515790011665E /* Cell */,
+				B5AC0CE6288294B60045FBB5 /* CalendarView.swift */,
+				B5D45105288515A10011665E /* WeatherView.swift */,
+			);
+			path = MainVC;
+			sourceTree = "<group>";
+		};
+		B5D45104288515790011665E /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B5AC0CE82882C9DF0045FBB5 /* CalendarCollectionViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,6 +268,7 @@
 				B5AC0CE92882C9DF0045FBB5 /* CalendarCollectionViewCell.swift in Sources */,
 				B5AC0CE7288294B60045FBB5 /* CalendarView.swift in Sources */,
 				B5AC0CB82882801E0045FBB5 /* MainTabBarController.swift in Sources */,
+				B5D45106288515A10011665E /* WeatherView.swift in Sources */,
 				B5AC0CE3288288520045FBB5 /* StatisticViewController.swift in Sources */,
 				B5AC0CDB288285BA0045FBB5 /* UIColor + Extensions .swift in Sources */,
 				B5AC0CB42882801E0045FBB5 /* AppDelegate.swift in Sources */,

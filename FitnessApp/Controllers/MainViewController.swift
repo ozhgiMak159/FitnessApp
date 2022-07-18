@@ -10,6 +10,7 @@ import UIKit
 class MainViewController: UIViewController {
     
     private let calendarView = CalendarView()
+    private let weatherView = WeatherView()
     
     private let addWorkoutButton: UIButton = {
         let button = UIButton(type: .system)
@@ -46,6 +47,7 @@ extension MainViewController {
         view.backgroundColor = .specialBackground
         view.addSubview(calendarView)
         view.addSubview(addWorkoutButton)
+        view.addSubview(weatherView)
     }
     
     private func setConstrains() {
@@ -61,6 +63,13 @@ extension MainViewController {
             addWorkoutButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             addWorkoutButton.heightAnchor.constraint(equalToConstant: 80),
             addWorkoutButton.widthAnchor.constraint(equalToConstant: 80)
+        ])
+        
+        NSLayoutConstraint.activate([
+            weatherView.leadingAnchor.constraint(equalTo: addWorkoutButton.trailingAnchor, constant: 10),
+            weatherView.topAnchor.constraint(equalTo: calendarView.bottomAnchor, constant: 5),
+            weatherView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            weatherView.heightAnchor.constraint(equalToConstant: 80)
         ])
         
         
