@@ -78,6 +78,7 @@ class StatisticViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupView(
             statisticLabel, segmentedControl,
             nameTextField, exercisesLabel,
