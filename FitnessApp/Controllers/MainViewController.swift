@@ -18,7 +18,16 @@ class MainViewController: UIViewController {
         button.layer.cornerRadius = 10
         button.titleLabel?.font = .robotoMedium12()
         button.tintColor = .specialDarkGreen
+        button.imageEdgeInsets = UIEdgeInsets(top: 0,
+                                              left: 20,
+                                              bottom: 15,
+                                              right: 0)
+        button.titleEdgeInsets = UIEdgeInsets(top: 50,
+                                              left: -40,
+                                              bottom: 0,
+                                              right: 0)
         button.setImage(UIImage(named: "addWorkout"), for: .normal)
+        button.setTitle("Add workout", for: .normal)
         button.addShadowOnView()
         button.addTarget(self, action: #selector(addWorkoutButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
