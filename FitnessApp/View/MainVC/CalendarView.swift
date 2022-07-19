@@ -20,18 +20,11 @@ class CalendarView: UIView {
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
-    
-    private let userNameLabel: UILabel = {
-       let label = UILabel()
-        label.text = "Maksim Ozhgibecov"
-        label.textColor = .specialGray
-        label.font = .robotoMedium24()
-        label.adjustsFontSizeToFitWidth = true
-        label.minimumScaleFactor = 0.5
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
+        
+    private let userNameLabel = UILabel(
+        text: "Maksim Ozhgibecov",
+        font: .robotoMedium24()
+    )
     
     private let collectionView: UICollectionView = {
        let layout = UICollectionViewFlowLayout()
@@ -46,6 +39,7 @@ class CalendarView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView(imagePerson, userNameLabel, collectionView)
+        setElement()
         setConstraints()
         setDelegate()
         
@@ -56,6 +50,11 @@ class CalendarView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
+    private func setElement() {
+        userNameLabel.adjustsFontSizeToFitWidth = true
+        userNameLabel.minimumScaleFactor = 0.5
+    }
     
     private func setupView(_ subviews: UIView...) {
         backgroundColor = .specialGreen

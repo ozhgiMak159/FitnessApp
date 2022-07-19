@@ -16,37 +16,35 @@ class WeatherView: UIView {
         return imageView
     }()
     
-    let weatherStatusLabel: UILabel = {
-       let label = UILabel()
-        label.text = "Солнечно"
-        label.font = .robotoBold24()
-        label.textColor = .specialGray
-        label.adjustsFontSizeToFitWidth = true
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
     
-    let weatherDescriptionLabel: UILabel = {
-       let label = UILabel()
-        label.text = "Хорошая погода, чтобы позаниматься на улице"
-        label.font = .robotoMedium16()
-        label.textColor = .specialGray
-        label.numberOfLines = 2
-        label.adjustsFontSizeToFitWidth = true
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    private let weatherStatusLabel = UILabel(
+        text: "Солнечно",
+        font: .robotoBold24()
+    )
     
+    private let weatherDescriptionLabel = UILabel(
+        text: "Хорошая погода, чтобы позаниматься на улице",
+        font: .robotoMedium16()
+    )
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView(weatherImageView, weatherStatusLabel, weatherDescriptionLabel)
+        setElementLabel()
         setConstraint()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    private func setElementLabel() {
+        weatherStatusLabel.adjustsFontSizeToFitWidth = true
+        
+        weatherDescriptionLabel.adjustsFontSizeToFitWidth = true
+        weatherDescriptionLabel.numberOfLines = 2
+    }
+    
     
     private func setupView(_ subviews: UIView...) {
         backgroundColor = .white
@@ -57,7 +55,6 @@ class WeatherView: UIView {
         subviews.forEach { subview in
             addSubview(subview)
         }
-        
     }
     
     private func setConstraint() {

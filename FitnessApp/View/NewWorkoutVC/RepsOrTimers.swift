@@ -8,24 +8,16 @@
 import UIKit
 
 class RepsOrTimers: UIView {
-
-    private let setsLabel: UILabel = {
-       let label = UILabel()
-        label.text = "Sets"
-        label.textColor = .specialGray
-        label.font = .robotoMedium22()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
     
-    private let numberOfSetLabel: UILabel = {
-        let label = UILabel()
-        label.text = "1"
-        label.font = .robotoMedium24()
-        label.textColor = .specialGray
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    private let setsLabel = UILabel(
+        text: "Sets",
+        font: .robotoMedium22()
+    )
+    
+    private let numberOfSetLabel = UILabel(
+        text: "1",
+        font: .robotoMedium24()
+    )
     
     private let setsSlider: UISlider = {
         let slider = UISlider()
@@ -38,32 +30,17 @@ class RepsOrTimers: UIView {
         return slider
     }()
     
-    private let repeatOrTimerLabel: UILabel = {
-       let label = UILabel()
-        label.text = "Choose repeat or timer"
-        label.font = .robotoMedium14()
-        label.textColor = .specialLightBrown
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    private let repeatOrTimerLabel = UILabel(text: "Choose repeat or timer")
     
-    private let repsLabel: UILabel = {
-       let label = UILabel()
-        label.text = "Reps"
-        label.font = .robotoMedium18()
-        label.textColor = .specialGray
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    private let repsLabel = UILabel(
+        text: "Reps",
+        font: .robotoMedium18()
+    )
     
-    private let numberOfRepsLabel: UILabel = {
-       let label = UILabel()
-        label.text = "1"
-        label.font = .robotoMedium24()
-        label.textColor = .specialGray
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    private let numberOfRepsLabel = UILabel(
+        text: "1",
+        font: .robotoMedium24()
+    )
     
     private let repsSlider: UISlider = {
         let slider = UISlider()
@@ -76,23 +53,15 @@ class RepsOrTimers: UIView {
         return slider
     }()
     
-    private let timerLabel: UILabel = {
-       let label = UILabel()
-        label.text = "Timer"
-        label.font = .robotoMedium18()
-        label.textColor = .specialGray
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-
-    private let numberOfTimerLabel: UILabel = {
-       let label = UILabel()
-        label.text = "0 min"
-        label.font = .robotoMedium24()
-        label.textColor = .specialGray
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    private let timerLabel = UILabel(
+        text: "Timer",
+        font: .robotoMedium18()
+    )
+    
+    private let numberOfTimerLabel = UILabel(
+        text: "0 min",
+        font: .robotoMedium24()
+    )
     
     private let timerSlider: UISlider = {
         let slider = UISlider()
@@ -104,22 +73,20 @@ class RepsOrTimers: UIView {
         slider.addTarget(self, action: #selector(timerSliderChanged), for: .valueChanged)
         return slider
     }()
-
+    
     private var setsStackView = UIStackView()
     private var repsStackView = UIStackView()
     private var timerStackView = UIStackView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setViews()
+        setViews(setsSlider, repeatOrTimerLabel, repsSlider, timerSlider )
         setConstraint()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
     
     @objc private func setsSliderChanged() {
         
@@ -133,9 +100,7 @@ class RepsOrTimers: UIView {
         
     }
 
-    
-    
-    private func setViews() {
+    private func setViews(_ subviews: UIView...) {
         backgroundColor = .specialBrown
         layer.cornerRadius = 15
         translatesAutoresizingMaskIntoConstraints = false
@@ -158,15 +123,13 @@ class RepsOrTimers: UIView {
             spacing: 10
         )
         
+        subviews.forEach { subview in
+            addSubview(subview)
+        }
+        
         addSubview(setsStackView)
-        addSubview(setsSlider)
-        addSubview(repeatOrTimerLabel)
-        
         addSubview(repsStackView)
-        addSubview(repsSlider)
-        
         addSubview(timerStackView)
-        addSubview(timerSlider)
     }
     
     private func setConstraint() {

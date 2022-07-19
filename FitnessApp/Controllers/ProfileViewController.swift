@@ -164,7 +164,9 @@ class ProfileViewController: UIViewController {
     }
     
     @objc private func editingButtonTap() {
-        
+        let settingViewController = SettingsViewController()
+        settingViewController.modalPresentationStyle = .fullScreen
+        present(settingViewController, animated: true)
     }
 }
 

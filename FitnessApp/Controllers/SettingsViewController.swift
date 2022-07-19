@@ -16,16 +16,15 @@ class SettingsViewController: UIViewController {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         return scrollView
     }()
+        
+    private let editingProfileLabel = UILabel(
+        text: "EDITING PROFILE",
+        font: .robotoMedium24(),
+        textColor: .specialGray,
+        textAlignment: .center
+    )
     
-    private let editingProfileLabel: UILabel = {
-       let label = UILabel()
-        label.text = "EDITING PROFILE"
-        label.font = .robotoMedium24()
-        label.textColor = .specialGray
-        label.textAlignment = .center
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+
     
     private let closeButton: UIButton = {
         let button = UIButton(type: .system)
@@ -55,7 +54,9 @@ class SettingsViewController: UIViewController {
         return view
     }()
     
-    private let firstNameLabel = UILabel(text: "   First name")
+   
+    
+    private let firstNameLabel = UILabel(text: "First name")
     
     private let firstNameTextField: UITextField = {
         let textField = UITextField()
@@ -72,7 +73,9 @@ class SettingsViewController: UIViewController {
         return textField
     }()
     
-    private let secondNameLabel = UILabel(text: "   Second name")
+    
+    private let secondNameLabel = UILabel(text: "Second name")
+    
     
     private let secondNameTextField: UITextField = {
         let textField = UITextField()
@@ -89,7 +92,7 @@ class SettingsViewController: UIViewController {
         return textField
     }()
     
-    private let heightLabel = UILabel(text: "   Height")
+    private let heightLabel = UILabel(text: "Height")
     
     private let heightTextField: UITextField = {
         let textField = UITextField()
@@ -107,7 +110,7 @@ class SettingsViewController: UIViewController {
         return textField
     }()
     
-    private let weightLabel = UILabel(text: "   Weight")
+    private let weightLabel = UILabel(text: "Weight")
     
     private let weightTextField: UITextField = {
         let textField = UITextField()
@@ -125,7 +128,7 @@ class SettingsViewController: UIViewController {
         return textField
     }()
     
-    private let targetLabel = UILabel(text: "   Target")
+    private let targetLabel = UILabel(text: "Target")
     
     private let targetTextField: UITextField = {
         let textField = UITextField()

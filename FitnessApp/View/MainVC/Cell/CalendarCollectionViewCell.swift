@@ -8,25 +8,19 @@
 import UIKit
 
 class CalendarCollectionViewCell: UICollectionViewCell {
-    
-    private let dayOfWeekLabel: UILabel = {
-       let label = UILabel()
-        label.text = "WE"
-        label.font = .robotoBold16()
-        label.textColor = .white
-        label.textAlignment = .center
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    private let numberOfDayLabel: UILabel = {
-       let label = UILabel()
-        label.text = "16"
-        label.font = .robotoBold20()
-        label.textColor = .white
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+        
+    private let dayOfWeekLabel = UILabel(
+        text: "WE",
+        font: .robotoBold16(),
+        textColor: .white,
+        textAlignment: .center
+    )
+        
+    private let numberOfDayLabel = UILabel(
+        text: "16",
+        font: .robotoBold20(),
+        textColor: .white
+    )
     
     override var isSelected: Bool {
         didSet {

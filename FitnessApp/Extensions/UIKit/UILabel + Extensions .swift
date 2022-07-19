@@ -8,23 +8,25 @@
 import UIKit
 
 extension UILabel {
-    convenience init(text: String = "") {
+    convenience init(text: String, font: UIFont? = .robotoMedium14(), textColor: UIColor? = .specialGray, textAlignment: NSTextAlignment = .left) {
         self.init()
         
         self.text = text
-        self.font = .robotoMedium14()
-        self.textColor = .specialLightBrown
+        self.font = font
+        self.textColor = textColor
+        self.textAlignment = textAlignment
         self.translatesAutoresizingMaskIntoConstraints = false
     }
 }
 
 
 /*
- private let workoutTodayLabel: UILabel = {
+ let weatherStatusLabel: UILabel = {
     let label = UILabel()
-     label.text = "Workout today"
-     label.textColor = .specialLightBrown
-     label.font = .robotoMedium14()
+     label.text = "Солнечно"
+     label.font = .robotoBold24()
+     label.textColor = .specialGray
+     label.adjustsFontSizeToFitWidth = true
      label.translatesAutoresizingMaskIntoConstraints = false
      return label
  }()
