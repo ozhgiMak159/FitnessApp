@@ -237,7 +237,7 @@ extension ProfileViewController {
             collectionView.topAnchor.constraint(equalTo: userParamStackView.bottomAnchor, constant: 20),
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            collectionView.heightAnchor.constraint(equalToConstant: 250)
+            collectionView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.25)
         ])
         
         NSLayoutConstraint.activate([

@@ -118,7 +118,7 @@ class NewWorkoutViewController: UIViewController {
     }
     
     @objc private func closeButtonTapp() {
-        print("Tapp")
+        dismiss(animated: true, completion: nil)
     }
     
     @objc private func saveButtonTapped() {
