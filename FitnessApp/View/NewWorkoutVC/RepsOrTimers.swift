@@ -19,6 +19,7 @@ class RepsOrTimers: UIView {
         font: .robotoMedium24()
     )
     
+    // ???
     private let setsSlider: UISlider = {
         let slider = UISlider()
         slider.minimumValue = 1
@@ -30,7 +31,7 @@ class RepsOrTimers: UIView {
         return slider
     }()
     
-    private let repeatOrTimerLabel = UILabel(text: "Choose repeat or timer")
+    private let repeatOrTimerLabel = UILabel(text: "Choose repeat or timer", textColor: .specialLightBrown)
     
     private let repsLabel = UILabel(
         text: "Reps",
@@ -42,6 +43,7 @@ class RepsOrTimers: UIView {
         font: .robotoMedium24()
     )
     
+    // ???
     private let repsSlider: UISlider = {
         let slider = UISlider()
         slider.minimumValue = 1
@@ -63,6 +65,7 @@ class RepsOrTimers: UIView {
         font: .robotoMedium24()
     )
     
+    // ???
     private let timerSlider: UISlider = {
         let slider = UISlider()
         slider.minimumValue = 1

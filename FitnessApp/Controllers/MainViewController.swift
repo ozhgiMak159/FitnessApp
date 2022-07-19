@@ -33,20 +33,10 @@ class MainViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-    
-//    private let workoutTodayLabel: UILabel = {
-//       let label = UILabel()
-//        label.text = "Workout today"
-//        label.textColor = .specialLightBrown
-//        label.font = .robotoMedium14()
-//        label.translatesAutoresizingMaskIntoConstraints = false
-//        return label
-//    }()
-    
+        
     private let workoutTodayLabel = UILabel(text: "Workout today")
     
-    
-    
+    private let identifierTableCell = "identifierTableCell"
     private let tableView: UITableView = {
        let tableView = UITableView()
         tableView.backgroundColor = .none
@@ -67,8 +57,6 @@ class MainViewController: UIViewController {
         return imageView
     }()
     
-    private let identifierTableCell = "identifierTableCell"
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView(
@@ -80,7 +68,6 @@ class MainViewController: UIViewController {
         setConstrains()
         setDelegate()
     }
-    
     
     @objc private func addWorkoutButtonTapped() {
         let newWorkoutViewController = NewWorkoutViewController()

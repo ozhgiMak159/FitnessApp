@@ -16,16 +16,12 @@ class NewWorkoutViewController: UIViewController {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         return scrollView
     }()
-    
-    private let newWorkoutLabel: UILabel = {
-       let label = UILabel()
-        label.text = "NEW WORKOUT"
-        label.font = .robotoMedium24()
-        label.textColor = .specialGray
-        label.textAlignment = .center
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+        
+    private let newWorkoutLabel = UILabel(
+        text: "NEW WORKOUT",
+        font: .robotoMedium24(),
+        textAlignment: .center
+    )
     
     private let closeButton: UIButton = {
        let button = UIButton()
@@ -34,16 +30,14 @@ class NewWorkoutViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
+        
+    private let nameLabel = UILabel(
+        text: "Name",
+        font: .robotoMedium16(),
+        textColor: .specialLightBrown
+    )
     
-    private let nameLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Name"
-        label.font = .robotoMedium16()
-        label.textColor = .specialLightBrown
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
+    //???
     private let nameTextField: UITextField = {
         let textField = UITextField()
         textField.backgroundColor = .specialBrown
@@ -58,40 +52,29 @@ class NewWorkoutViewController: UIViewController {
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
-    
-    private let nameRepeatAndDate: UILabel = {
-       let label = UILabel()
-        label.text = "Date and repeat"
-        label.font = .robotoMedium16()
-        label.textColor = .specialLightBrown
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    private let dateAndRepeat = DateAndRepeatView()
-    
-    private let repsAndTimersLabel: UILabel = {
-       let label = UILabel()
-        label.text = "Reps or timer"
-        label.font = .robotoMedium16()
-        label.textColor = .specialLightBrown
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+        
+    private let nameRepeatAndDate = UILabel(
+        text: "Date and repeat",
+        font: .robotoMedium16(),
+        textColor: .specialLightBrown
+    )
     
     private let repsOrTimerView = RepsOrTimers()
-    
-    private let typeTraining: UILabel = {
-       let label = UILabel()
-        label.text = "Type of training"
-        label.font = .robotoMedium16()
-        label.textColor = .specialLightBrown
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
+    private let dateAndRepeat = DateAndRepeatView()
     private let typeGymView = TypeGymView()
         
+    private let repsAndTimersLabel = UILabel(
+        text: "Reps or timer",
+        font: .robotoMedium16(),
+        textColor: .specialLightBrown
+    )
+        
+    private let typeTraining = UILabel(
+        text: "Type of training",
+        font: .robotoMedium16(),
+        textColor: .specialLightBrown
+    )
+    
     private let saveButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = .specialGreen

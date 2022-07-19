@@ -8,16 +8,12 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
-    
-    private let profileLabel: UILabel = {
-       let label = UILabel()
-        label.text = "PROFILE"
-        label.font = .robotoMedium24()
-        label.textColor = .specialGray
-        label.textAlignment = .center
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+        
+    private let profileLabel = UILabel(
+        text: "PROFILE",
+        font: .robotoMedium24(),
+        textAlignment: .center
+    )
     
     private let userPhotoImageView: UIImageView = {
         let imageView = UIImageView()
@@ -37,33 +33,22 @@ class ProfileViewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+        
+    private let userNameLabel = UILabel(
+        text: "YOUR NAME",
+        font: .robotoBold24(),
+        textColor: .white
+    )
     
-    private let userNameLabel: UILabel = {
-       let label = UILabel()
-        label.text = "YOUR NAME"
-        label.font = .robotoBold24()
-        label.textColor = .white
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    private let userHeightLabel = UILabel(
+        text: "Height: _",
+        font: .robotoBold16()
+    )
     
-    private let userHeightLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Height: _"
-        label.font = .robotoBold16()
-        label.textColor = .specialGray
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    private let userWeightLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Weight: _"
-        label.font = .robotoBold16()
-        label.textColor = .specialGray
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    private let userWeightLabel = UILabel(
+        text: "Weight: _",
+        font: .robotoBold16()
+    )
     
     private let editingButton: UIButton = {
         let button = UIButton(type: .system)
@@ -88,32 +73,20 @@ class ProfileViewController: UIViewController {
         return collectionVIew
     }()
     
-    private let targetLabel: UILabel = {
-       let label = UILabel()
-        label.text = "TARGET: 0 workouts"
-        label.font = .robotoBold16()
-        label.textColor = .specialGray
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    private let targetLabel = UILabel(
+        text: "TARGET: 0 workouts",
+        font: .robotoBold16()
+    )
     
-    private let workoutsNowLabel: UILabel = {
-       let label = UILabel()
-        label.text = "0"
-        label.font = .robotoBold24()
-        label.textColor = .specialGray
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    private let workoutsNowLabel = UILabel(
+        text: "0",
+        font: .robotoBold24()
+    )
     
-    private let workoutsTargetLabel: UILabel = {
-       let label = UILabel()
-        label.text = "0"
-        label.font = .robotoBold24()
-        label.textColor = .specialGray
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    private let workoutsTargetLabel = UILabel(
+        text: "0",
+        font: .robotoBold24()
+    )
     
     private let targetView: UIView = {
         let view = UIView()
@@ -143,7 +116,6 @@ class ProfileViewController: UIViewController {
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        
         userPhotoImageView.layer.cornerRadius = userPhotoImageView.frame.height / 2
     }
     

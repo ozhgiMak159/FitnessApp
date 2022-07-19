@@ -9,15 +9,11 @@ import UIKit
 
 class StatisticViewController: UIViewController {
     
-    private let statisticLabel: UILabel = {
-       let label = UILabel()
-        label.text = "STATISTIC"
-        label.font = .robotoMedium24()
-        label.textColor = .specialGray
-        label.textAlignment = .center
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    private let statisticLabel = UILabel(
+        text: "STATISTIC",
+        font: .robotoMedium24(),
+        textAlignment: .center
+    )
     
     private let segmentedControl: UISegmentedControl = {
         let segmentedControl = UISegmentedControl(items: ["Неделя", "Месяц"])
@@ -55,14 +51,11 @@ class StatisticViewController: UIViewController {
         return textField
     }()
     
-    private let exercisesLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Exercises"
-        label.font = .robotoMedium16()
-        label.textColor = .specialLightBrown
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    private let exercisesLabel = UILabel(
+        text: "Exercises",
+        font: .robotoMedium16(),
+        textColor: .specialLightBrown
+    )
     
     private let tableView: UITableView = {
        let tableView = UITableView()
@@ -78,7 +71,6 @@ class StatisticViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupView(
             statisticLabel, segmentedControl,
             nameTextField, exercisesLabel,
@@ -88,7 +80,6 @@ class StatisticViewController: UIViewController {
         setConstraints()
         setDelegate()
     }
-    
     
     private func setDelegate() {
         tableView.delegate = self

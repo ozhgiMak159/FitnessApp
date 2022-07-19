@@ -20,11 +20,8 @@ class SettingsViewController: UIViewController {
     private let editingProfileLabel = UILabel(
         text: "EDITING PROFILE",
         font: .robotoMedium24(),
-        textColor: .specialGray,
         textAlignment: .center
     )
-    
-
     
     private let closeButton: UIButton = {
         let button = UIButton(type: .system)
@@ -56,7 +53,7 @@ class SettingsViewController: UIViewController {
     
    
     
-    private let firstNameLabel = UILabel(text: "First name")
+    private let firstNameLabel = UILabel(text: "First name",textColor: .specialLightBrown)
     
     private let firstNameTextField: UITextField = {
         let textField = UITextField()
@@ -74,7 +71,7 @@ class SettingsViewController: UIViewController {
     }()
     
     
-    private let secondNameLabel = UILabel(text: "Second name")
+    private let secondNameLabel = UILabel(text: "Second name", textColor: .specialLightBrown)
     
     
     private let secondNameTextField: UITextField = {
@@ -92,7 +89,7 @@ class SettingsViewController: UIViewController {
         return textField
     }()
     
-    private let heightLabel = UILabel(text: "Height")
+    private let heightLabel = UILabel(text: "Height", textColor: .specialLightBrown)
     
     private let heightTextField: UITextField = {
         let textField = UITextField()
@@ -110,7 +107,7 @@ class SettingsViewController: UIViewController {
         return textField
     }()
     
-    private let weightLabel = UILabel(text: "Weight")
+    private let weightLabel = UILabel(text: "Weight", textColor: .specialLightBrown)
     
     private let weightTextField: UITextField = {
         let textField = UITextField()
@@ -128,7 +125,7 @@ class SettingsViewController: UIViewController {
         return textField
     }()
     
-    private let targetLabel = UILabel(text: "Target")
+    private let targetLabel = UILabel(text: "Target", textColor: .specialLightBrown)
     
     private let targetTextField: UITextField = {
         let textField = UITextField()
@@ -173,49 +170,60 @@ class SettingsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupViews()
+        setupViews(editingProfileLabel, closeButton, addPhotoView, addPhotoImageView, saveButton )
         setConstraints()
     }
     
-    private func setupViews() {
+    private func setupViews(_ subviews: UIView...) {
         
         view.backgroundColor = .specialBackground
         view.addSubview(scrollView)
         
-        scrollView.addSubview(editingProfileLabel)
-        scrollView.addSubview(closeButton)
-        scrollView.addSubview(addPhotoView)
-        scrollView.addSubview(addPhotoImageView)
+        subviews.forEach { subview in
+            scrollView.addSubview(subview)
+        }
         
-        firstNameStackView = UIStackView(arrangedSubviews: [firstNameLabel, firstNameTextField],
-                                         axis: .vertical,
-                                         spacing: 3)
+        firstNameStackView = UIStackView(
+            arrangedSubviews: [firstNameLabel, firstNameTextField],
+            axis: .vertical,
+            spacing: 3
+        )
         
-        secondNameStackView = UIStackView(arrangedSubviews: [secondNameLabel, secondNameTextField],
-                                         axis: .vertical,
-                                         spacing: 3)
+        secondNameStackView = UIStackView(
+            arrangedSubviews: [secondNameLabel, secondNameTextField],
+            axis: .vertical,
+            spacing: 3
+        )
         
-        heightStackView = UIStackView(arrangedSubviews: [heightLabel, heightTextField],
-                                         axis: .vertical,
-                                         spacing: 3)
+        heightStackView = UIStackView(
+            arrangedSubviews: [heightLabel, heightTextField],
+            axis: .vertical,
+            spacing: 3
+        )
         
-        weightStackView = UIStackView(arrangedSubviews: [weightLabel, weightTextField],
-                                         axis: .vertical,
-                                         spacing: 3)
+        weightStackView = UIStackView(
+            arrangedSubviews: [weightLabel, weightTextField],
+            axis: .vertical,
+            spacing: 3
+        )
         
-        targetStackView = UIStackView(arrangedSubviews: [targetLabel, targetTextField],
-                                         axis: .vertical,
-                                         spacing: 3)
+        targetStackView = UIStackView(
+            arrangedSubviews: [targetLabel, targetTextField],
+            axis: .vertical,
+            spacing: 3
+        )
         
-        generalStackView = UIStackView(arrangedSubviews: [firstNameStackView,
-                                                         secondNameStackView,
-                                                         heightStackView,
-                                                         weightStackView,
-                                                         targetStackView],
-                                       axis: .vertical,
-                                       spacing: 20)
+        generalStackView = UIStackView(
+            arrangedSubviews: [firstNameStackView,
+                                secondNameStackView,
+                                heightStackView,
+                                weightStackView,
+                                targetStackView],
+            axis: .vertical,
+            spacing: 20
+        )
+        
         scrollView.addSubview(generalStackView)
-        scrollView.addSubview(saveButton)
     }
     
     
