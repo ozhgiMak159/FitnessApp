@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B59C9301288674B400EF372F /* TypeGymView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59C9300288674B400EF372F /* TypeGymView.swift */; };
 		B5AC0CB42882801E0045FBB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AC0CB32882801E0045FBB5 /* AppDelegate.swift */; };
 		B5AC0CB62882801E0045FBB5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AC0CB52882801E0045FBB5 /* SceneDelegate.swift */; };
 		B5AC0CB82882801E0045FBB5 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AC0CB72882801E0045FBB5 /* MainTabBarController.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B59C9300288674B400EF372F /* TypeGymView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeGymView.swift; sourceTree = "<group>"; };
 		B5AC0CB02882801E0045FBB5 /* FitnessApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitnessApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5AC0CB32882801E0045FBB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5AC0CB52882801E0045FBB5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 			children = (
 				B5D4510A288537130011665E /* DateAndReapeatView.swift */,
 				B5D4510E288560850011665E /* RepsOrTimers.swift */,
+				B59C9300288674B400EF372F /* TypeGymView.swift */,
 			);
 			path = NewWorkoutVC;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B59C9301288674B400EF372F /* TypeGymView.swift in Sources */,
 				B5AC0CD72882858E0045FBB5 /* UIFont + Extensions.swift in Sources */,
 				B5D4510B288537130011665E /* DateAndReapeatView.swift in Sources */,
 				B5AC0CDD288285DA0045FBB5 /* UIStackView + Extensions .swift in Sources */,

@@ -9,6 +9,14 @@ import UIKit
 
 class NewWorkoutViewController: UIViewController {
     
+    private let scrollView: UIScrollView = {
+       let scrollView = UIScrollView()
+        scrollView.bounces = false
+        scrollView.delaysContentTouches = false
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        return scrollView
+    }()
+    
     private let newWorkoutLabel: UILabel = {
        let label = UILabel()
         label.text = "NEW WORKOUT"
@@ -73,14 +81,29 @@ class NewWorkoutViewController: UIViewController {
     
     private let repsOrTimerView = RepsOrTimers()
     
-    private let gymImage: UILabel = {
+    private let typeTraining: UILabel = {
        let label = UILabel()
-        label.text = "Здесь будет скролл с фотками"
+        label.text = "Type of training"
         label.font = .robotoMedium16()
         label.textColor = .specialLightBrown
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    
+    private let typeGymView = TypeGymView()
+    
+//    private let collectionView: UICollectionView = {
+//       let layout = UICollectionViewFlowLayout()
+//        layout.scrollDirection = .horizontal
+//        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+//        collectionView.bounces = false
+//        collectionView.showsHorizontalScrollIndicator = false
+//        collectionView.backgroundColor = .blue
+//        collectionView.translatesAutoresizingMaskIntoConstraints = false
+//        return collectionView
+//    }()
+//
+//    private let identificationCell = "identificationCell"
     
     private let saveButton: UIButton = {
         let button = UIButton(type: .system)
@@ -96,18 +119,24 @@ class NewWorkoutViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .specialBackground
-        
         setupView(
             newWorkoutLabel, closeButton,
             nameLabel, nameTextField,
             nameRepeatAndDate, dateAndRepeat,
             repsAndTimersLabel, repsOrTimerView,
-            gymImage, saveButton
+            typeTraining, typeGymView //saveButton
         )
         
         setConstraints()
+        //setDelegate()
     }
+    
+//    private func setDelegate() {
+//        collectionView.delegate = self
+//        collectionView.dataSource = self
+//        collectionView.register(UITableViewCell.self, forCellWithReuseIdentifier: identificationCell)
+//    }
+    
     
     @objc private func closeButtonTapp() {
         print("Tapp")
@@ -119,14 +148,50 @@ class NewWorkoutViewController: UIViewController {
     
 }
 
+//extension NewWorkoutViewController: UICollectionViewDataSource {
+//
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        4
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identificationCell, for: indexPath)
+//
+//        return cell
+//    }
+//
+//}
+
+//extension NewWorkoutViewController: UICollectionViewDelegateFlowLayout {
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        CGSize(width: collectionView.frame.width / 2 , height: 50)
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+//        5
+//    }
+//
+//}
+
 extension NewWorkoutViewController {
     private func setupView(_ subviews: UIView...) {
+        view.backgroundColor = .specialBackground
+        view.addSubview(scrollView)
+        
         subviews.forEach { subview in
-            view.addSubview(subview)
+            scrollView.addSubview(subview)
         }
     }
     
     private func setConstraints() {
+        
+        NSLayoutConstraint.activate([
+            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+            scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0)
+        ])
+        
         NSLayoutConstraint.activate([
             newWorkoutLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             newWorkoutLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
@@ -152,7 +217,7 @@ extension NewWorkoutViewController {
         ])
         
         NSLayoutConstraint.activate([
-            nameRepeatAndDate.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 15),
+            nameRepeatAndDate.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 10),
             nameRepeatAndDate.leadingAnchor.constraint(equalTo: nameTextField.leadingAnchor)
         ])
         
@@ -164,7 +229,7 @@ extension NewWorkoutViewController {
         ])
         
         NSLayoutConstraint.activate([
-            repsAndTimersLabel.topAnchor.constraint(equalTo: dateAndRepeat.bottomAnchor, constant: 15),
+            repsAndTimersLabel.topAnchor.constraint(equalTo: dateAndRepeat.bottomAnchor, constant: 10),
             repsAndTimersLabel.leadingAnchor.constraint(equalTo: dateAndRepeat.leadingAnchor)
         ])
         
@@ -176,16 +241,24 @@ extension NewWorkoutViewController {
         ])
         
         NSLayoutConstraint.activate([
-            gymImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            gymImage.topAnchor.constraint(equalTo: repsOrTimerView.bottomAnchor, constant: 20)
+            typeTraining.topAnchor.constraint(equalTo: repsOrTimerView.bottomAnchor, constant: 10),
+            typeTraining.leadingAnchor.constraint(equalTo: repsOrTimerView.leadingAnchor)
         ])
         
         NSLayoutConstraint.activate([
-            saveButton.topAnchor.constraint(equalTo: gymImage.bottomAnchor, constant: 90),
-            saveButton.leadingAnchor.constraint(equalTo: repsOrTimerView.leadingAnchor),
-            saveButton.trailingAnchor.constraint(equalTo: repsOrTimerView.trailingAnchor),
-            saveButton.heightAnchor.constraint(equalToConstant: 55)
+            typeGymView.topAnchor.constraint(equalTo: typeTraining.bottomAnchor, constant: 3),
+            typeGymView.leadingAnchor.constraint(equalTo: repsOrTimerView.leadingAnchor),
+            typeGymView.trailingAnchor.constraint(equalTo: repsOrTimerView.trailingAnchor),
+            typeGymView.heightAnchor.constraint(equalToConstant: 100)
         ])
+        
+      
+//        NSLayoutConstraint.activate([
+//            saveButton.topAnchor.constraint(equalTo: typeTraining.bottomAnchor, constant: 90),
+//            saveButton.leadingAnchor.constraint(equalTo: repsOrTimerView.leadingAnchor),
+//            saveButton.trailingAnchor.constraint(equalTo: repsOrTimerView.trailingAnchor),
+//            saveButton.heightAnchor.constraint(equalToConstant: 55)
+//        ])
     }
     
     
