@@ -91,20 +91,7 @@ class NewWorkoutViewController: UIViewController {
     }()
     
     private let typeGymView = TypeGymView()
-    
-//    private let collectionView: UICollectionView = {
-//       let layout = UICollectionViewFlowLayout()
-//        layout.scrollDirection = .horizontal
-//        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-//        collectionView.bounces = false
-//        collectionView.showsHorizontalScrollIndicator = false
-//        collectionView.backgroundColor = .blue
-//        collectionView.translatesAutoresizingMaskIntoConstraints = false
-//        return collectionView
-//    }()
-//
-//    private let identificationCell = "identificationCell"
-    
+        
     private let saveButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = .specialGreen
@@ -124,19 +111,11 @@ class NewWorkoutViewController: UIViewController {
             nameLabel, nameTextField,
             nameRepeatAndDate, dateAndRepeat,
             repsAndTimersLabel, repsOrTimerView,
-            typeTraining, typeGymView //saveButton
+            typeTraining, typeGymView, saveButton
         )
         
         setConstraints()
-        //setDelegate()
     }
-    
-//    private func setDelegate() {
-//        collectionView.delegate = self
-//        collectionView.dataSource = self
-//        collectionView.register(UITableViewCell.self, forCellWithReuseIdentifier: identificationCell)
-//    }
-    
     
     @objc private func closeButtonTapp() {
         print("Tapp")
@@ -147,31 +126,6 @@ class NewWorkoutViewController: UIViewController {
     }
     
 }
-
-//extension NewWorkoutViewController: UICollectionViewDataSource {
-//
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        4
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identificationCell, for: indexPath)
-//
-//        return cell
-//    }
-//
-//}
-
-//extension NewWorkoutViewController: UICollectionViewDelegateFlowLayout {
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        CGSize(width: collectionView.frame.width / 2 , height: 50)
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-//        5
-//    }
-//
-//}
 
 extension NewWorkoutViewController {
     private func setupView(_ subviews: UIView...) {
@@ -252,13 +206,12 @@ extension NewWorkoutViewController {
             typeGymView.heightAnchor.constraint(equalToConstant: 100)
         ])
         
-      
-//        NSLayoutConstraint.activate([
-//            saveButton.topAnchor.constraint(equalTo: typeTraining.bottomAnchor, constant: 90),
-//            saveButton.leadingAnchor.constraint(equalTo: repsOrTimerView.leadingAnchor),
-//            saveButton.trailingAnchor.constraint(equalTo: repsOrTimerView.trailingAnchor),
-//            saveButton.heightAnchor.constraint(equalToConstant: 55)
-//        ])
+        NSLayoutConstraint.activate([
+            saveButton.topAnchor.constraint(equalTo: typeGymView.bottomAnchor, constant: 20),
+            saveButton.leadingAnchor.constraint(equalTo: typeGymView.leadingAnchor),
+            saveButton.trailingAnchor.constraint(equalTo: typeGymView.trailingAnchor),
+            saveButton.heightAnchor.constraint(equalToConstant: 55)
+        ])
     }
     
     
