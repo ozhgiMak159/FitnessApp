@@ -102,7 +102,7 @@ extension MainViewController {
     
     private func setupView(_ subviews: UIView...) {
         view.backgroundColor = .specialBackground
-        
+      
         subviews.forEach { subview in
             view.addSubview(subview)
         }
@@ -150,10 +150,10 @@ extension MainViewController {
         ])
         
         NSLayoutConstraint.activate([
+            noWorkoutImageView.topAnchor.constraint(equalTo: workoutTodayLabel.bottomAnchor, constant: 0),
             noWorkoutImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
             noWorkoutImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
-            noWorkoutImageView.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1),
-            noWorkoutImageView.topAnchor.constraint(equalTo: workoutTodayLabel.bottomAnchor, constant: 0)
+            noWorkoutImageView.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.94),
         ])
     }
 }

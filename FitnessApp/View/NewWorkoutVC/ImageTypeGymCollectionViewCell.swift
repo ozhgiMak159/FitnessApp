@@ -53,5 +53,4 @@ class ImageTypeGymCollectionViewCell: UICollectionViewCell {
             imageView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0)
         ])
     }
-    
 }

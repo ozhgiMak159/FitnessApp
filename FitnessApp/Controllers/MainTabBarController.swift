@@ -40,7 +40,7 @@ class MainTabBarController: UITabBarController {
         items[1].image = UIImage(named: "tabBarStatistic")
         items[2].image = UIImage(named: "tabBarProfile")
         
-        UITabBarItem.appearance().titlePositionAdjustment = .init(horizontal: 0, vertical: 5)
+        
         UITabBarItem.appearance().setTitleTextAttributes([.font: UIFont(name: "Roboto-Bold", size: 14) as Any], for: .normal)
     }
     

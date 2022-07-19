@@ -113,7 +113,7 @@ class NewWorkoutViewController: UIViewController {
             repsAndTimersLabel, repsOrTimerView,
             typeTraining, typeGymView, saveButton
         )
-        
+
         setConstraints()
     }
     
@@ -147,7 +147,7 @@ extension NewWorkoutViewController {
         ])
         
         NSLayoutConstraint.activate([
-            newWorkoutLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            newWorkoutLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20),
             newWorkoutLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
         
@@ -210,6 +210,7 @@ extension NewWorkoutViewController {
             saveButton.topAnchor.constraint(equalTo: typeGymView.bottomAnchor, constant: 20),
             saveButton.leadingAnchor.constraint(equalTo: typeGymView.leadingAnchor),
             saveButton.trailingAnchor.constraint(equalTo: typeGymView.trailingAnchor),
+            saveButton.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -20),
             saveButton.heightAnchor.constraint(equalToConstant: 55)
         ])
     }
