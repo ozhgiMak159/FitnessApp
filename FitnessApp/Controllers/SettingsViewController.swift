@@ -214,18 +214,19 @@ class SettingsViewController: UIViewController {
         )
         
         generalStackView = UIStackView(
-            arrangedSubviews: [firstNameStackView,
-                                secondNameStackView,
-                                heightStackView,
-                                weightStackView,
-                                targetStackView],
+            arrangedSubviews: [
+                firstNameStackView,
+                secondNameStackView,
+                heightStackView,
+                weightStackView,
+                targetStackView
+            ],
             axis: .vertical,
             spacing: 20
         )
         
         scrollView.addSubview(generalStackView)
     }
-    
     
     @objc private func closeButtonTapped() {
         dismiss(animated: true, completion: nil)

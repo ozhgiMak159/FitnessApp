@@ -11,7 +11,7 @@ class RepsOrTimers: UIView {
     
     private let setsLabel = UILabel(
         text: "Sets",
-        font: .robotoMedium22()
+        font: .robotoMedium18()
     )
     
     private let numberOfSetLabel = UILabel(
