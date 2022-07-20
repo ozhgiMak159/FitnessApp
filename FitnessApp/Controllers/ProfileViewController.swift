@@ -9,11 +9,13 @@ import UIKit
 
 class ProfileViewController: UIViewController {
         
-    private let profileLabel = UILabel(
-        text: "PROFILE",
-        font: .robotoMedium24(),
-        textAlignment: .center
-    )
+    private let profileLabel = UILabel(text: "PROFILE", font: .robotoMedium24(), textAlignment: .center)
+    private let userNameLabel = UILabel(text: "YOUR NAME", font: .robotoBold24(), textColor: .white)
+    private let userHeightLabel = UILabel(text: "Height: _", font: .robotoBold16())
+    private let userWeightLabel = UILabel(text: "Weight: _", font: .robotoBold16())
+    private let targetLabel = UILabel(text: "TARGET: 0 workouts", font: .robotoBold16())
+    private let workoutsNowLabel = UILabel(text: "0", font: .robotoBold24())
+    private let workoutsTargetLabel = UILabel(text: "0", font: .robotoBold24())
     
     private let userPhotoImageView: UIImageView = {
         let imageView = UIImageView()
@@ -33,22 +35,14 @@ class ProfileViewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-        
-    private let userNameLabel = UILabel(
-        text: "YOUR NAME",
-        font: .robotoBold24(),
-        textColor: .white
-    )
     
-    private let userHeightLabel = UILabel(
-        text: "Height: _",
-        font: .robotoBold16()
-    )
-    
-    private let userWeightLabel = UILabel(
-        text: "Weight: _",
-        font: .robotoBold16()
-    )
+    private let targetView: UIView = {
+        let view = UIView()
+        view.layer.cornerRadius = 15
+        view.backgroundColor = .specialBrown
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
     
     private let editingButton: UIButton = {
         let button = UIButton(type: .system)
@@ -71,29 +65,6 @@ class ProfileViewController: UIViewController {
         collectionVIew.showsHorizontalScrollIndicator = false
         collectionVIew.backgroundColor = .none
         return collectionVIew
-    }()
-    
-    private let targetLabel = UILabel(
-        text: "TARGET: 0 workouts",
-        font: .robotoBold16()
-    )
-    
-    private let workoutsNowLabel = UILabel(
-        text: "0",
-        font: .robotoBold24()
-    )
-    
-    private let workoutsTargetLabel = UILabel(
-        text: "0",
-        font: .robotoBold24()
-    )
-    
-    private let targetView: UIView = {
-        let view = UIView()
-        view.layer.cornerRadius = 15
-        view.backgroundColor = .specialBrown
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
     }()
     
     private let progressView: UIProgressView = {

@@ -7,8 +7,6 @@
 
 import UIKit
 
-// Класс это сама фигура 
-
 class CalendarView: UIView {
     
     private let imagePerson: UIImageView = {
@@ -21,10 +19,7 @@ class CalendarView: UIView {
         return image
     }()
         
-    private let userNameLabel = UILabel(
-        text: "Maksim Ozhgibecov",
-        font: .robotoMedium24()
-    )
+    private let userNameLabel = UILabel(text: "Maksim Ozhgibecov", font: .robotoMedium24())
     
     private let collectionView: UICollectionView = {
        let layout = UICollectionViewFlowLayout()
@@ -49,7 +44,6 @@ class CalendarView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
     
     private func setElement() {
         userNameLabel.adjustsFontSizeToFitWidth = true
@@ -116,7 +110,6 @@ extension CalendarView: UICollectionViewDataSource {
         
         return cell
     }
-    
     
 }
 

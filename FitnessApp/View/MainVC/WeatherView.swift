@@ -16,7 +16,6 @@ class WeatherView: UIView {
         return imageView
     }()
     
-    
     private let weatherStatusLabel = UILabel(
         text: "Солнечно",
         font: .robotoBold24()
@@ -44,7 +43,6 @@ class WeatherView: UIView {
         weatherDescriptionLabel.adjustsFontSizeToFitWidth = true
         weatherDescriptionLabel.numberOfLines = 2
     }
-    
     
     private func setupView(_ subviews: UIView...) {
         backgroundColor = .white

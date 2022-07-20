@@ -37,6 +37,7 @@ class MainViewController: UIViewController {
     private let workoutTodayLabel = UILabel(text: "Workout today")
     
     private let identifierTableCell = "identifierTableCell"
+    
     private let tableView: UITableView = {
        let tableView = UITableView()
         tableView.backgroundColor = .none

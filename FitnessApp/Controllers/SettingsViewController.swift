@@ -51,97 +51,17 @@ class SettingsViewController: UIViewController {
         return view
     }()
     
-   
-    
+    private let heightLabel = UILabel(text: "Height", textColor: .specialLightBrown)
+    private let weightLabel = UILabel(text: "Weight", textColor: .specialLightBrown)
+    private let targetLabel = UILabel(text: "Target", textColor: .specialLightBrown)
+    private let secondNameLabel = UILabel(text: "Second name", textColor: .specialLightBrown)
     private let firstNameLabel = UILabel(text: "First name",textColor: .specialLightBrown)
     
-    private let firstNameTextField: UITextField = {
-        let textField = UITextField()
-        textField.backgroundColor = .specialBrown
-        textField.borderStyle = .none
-        textField.layer.cornerRadius = 10
-        textField.textColor = .specialGray
-        textField.font = .robotoBold20()
-        textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: textField.frame.height))
-        textField.leftViewMode = .always
-        textField.clearButtonMode = .always
-        textField.returnKeyType = .done
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        return textField
-    }()
-    
-    
-    private let secondNameLabel = UILabel(text: "Second name", textColor: .specialLightBrown)
-    
-    
-    private let secondNameTextField: UITextField = {
-        let textField = UITextField()
-        textField.backgroundColor = .specialBrown
-        textField.borderStyle = .none
-        textField.layer.cornerRadius = 10
-        textField.textColor = .specialGray
-        textField.font = .robotoBold20()
-        textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: textField.frame.height))
-        textField.leftViewMode = .always
-        textField.clearButtonMode = .always
-        textField.returnKeyType = .done
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        return textField
-    }()
-    
-    private let heightLabel = UILabel(text: "Height", textColor: .specialLightBrown)
-    
-    private let heightTextField: UITextField = {
-        let textField = UITextField()
-        textField.backgroundColor = .specialBrown
-        textField.borderStyle = .none
-        textField.layer.cornerRadius = 10
-        textField.textColor = .specialGray
-        textField.font = .robotoBold20()
-        textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: textField.frame.height))
-        textField.leftViewMode = .always
-        textField.clearButtonMode = .always
-        textField.returnKeyType = .done
-        textField.keyboardType = .numberPad
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        return textField
-    }()
-    
-    private let weightLabel = UILabel(text: "Weight", textColor: .specialLightBrown)
-    
-    private let weightTextField: UITextField = {
-        let textField = UITextField()
-        textField.backgroundColor = .specialBrown
-        textField.borderStyle = .none
-        textField.layer.cornerRadius = 10
-        textField.textColor = .specialGray
-        textField.font = .robotoBold20()
-        textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: textField.frame.height))
-        textField.leftViewMode = .always
-        textField.clearButtonMode = .always
-        textField.returnKeyType = .done
-        textField.keyboardType = .numberPad
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        return textField
-    }()
-    
-    private let targetLabel = UILabel(text: "Target", textColor: .specialLightBrown)
-    
-    private let targetTextField: UITextField = {
-        let textField = UITextField()
-        textField.backgroundColor = .specialBrown
-        textField.borderStyle = .none
-        textField.layer.cornerRadius = 10
-        textField.textColor = .specialGray
-        textField.font = .robotoBold20()
-        textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: textField.frame.height))
-        textField.leftViewMode = .always
-        textField.clearButtonMode = .always
-        textField.returnKeyType = .done
-        textField.keyboardType = .numberPad
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        return textField
-    }()
+    private let firstNameTextField = UITextField(backgroundColor: .specialBrown)
+    private let secondNameTextField = UITextField(backgroundColor: .specialBrown)
+    private let heightTextField = UITextField(backgroundColor: .specialBrown)
+    private let weightTextField = UITextField(backgroundColor: .specialBrown)
+    private let targetTextField = UITextField(backgroundColor: .specialBrown)
     
     private let saveButton: UIButton = {
         let button = UIButton(type: .system)

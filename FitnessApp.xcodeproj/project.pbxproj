@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B53646B82887B849009EE537 /* UISlider + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53646B72887B849009EE537 /* UISlider + Extensions.swift */; };
+		B53646BA2887C326009EE537 /* UITextField + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53646B92887C326009EE537 /* UITextField + Extensions.swift */; };
 		B59C9301288674B400EF372F /* TypeGymView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59C9300288674B400EF372F /* TypeGymView.swift */; };
 		B59C930328867C0C00EF372F /* ImageTypeGymCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59C930228867C0C00EF372F /* ImageTypeGymCollectionViewCell.swift */; };
 		B59C93052886AC1800EF372F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59C93042886AC1800EF372F /* SettingsViewController.swift */; };
@@ -35,6 +37,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B53646B72887B849009EE537 /* UISlider + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISlider + Extensions.swift"; sourceTree = "<group>"; };
+		B53646B92887C326009EE537 /* UITextField + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField + Extensions.swift"; sourceTree = "<group>"; };
 		B59C9300288674B400EF372F /* TypeGymView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeGymView.swift; sourceTree = "<group>"; };
 		B59C930228867C0C00EF372F /* ImageTypeGymCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTypeGymCollectionViewCell.swift; sourceTree = "<group>"; };
 		B59C93042886AC1800EF372F /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -186,6 +190,8 @@
 				B5AC0CDA288285BA0045FBB5 /* UIColor + Extensions .swift */,
 				B5AC0CDC288285DA0045FBB5 /* UIStackView + Extensions .swift */,
 				B5AC0CDE288286560045FBB5 /* UILabel + Extensions .swift */,
+				B53646B72887B849009EE537 /* UISlider + Extensions.swift */,
+				B53646B92887C326009EE537 /* UITextField + Extensions.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -296,10 +302,12 @@
 				B59C9301288674B400EF372F /* TypeGymView.swift in Sources */,
 				B59C93052886AC1800EF372F /* SettingsViewController.swift in Sources */,
 				B5AC0CD72882858E0045FBB5 /* UIFont + Extensions.swift in Sources */,
+				B53646BA2887C326009EE537 /* UITextField + Extensions.swift in Sources */,
 				B5D4510B288537130011665E /* DateAndReapeatView.swift in Sources */,
 				B5AC0CDD288285DA0045FBB5 /* UIStackView + Extensions .swift in Sources */,
 				B5AC0CE92882C9DF0045FBB5 /* CalendarCollectionViewCell.swift in Sources */,
 				B5AC0CE7288294B60045FBB5 /* CalendarView.swift in Sources */,
+				B53646B82887B849009EE537 /* UISlider + Extensions.swift in Sources */,
 				B5AC0CB82882801E0045FBB5 /* MainTabBarController.swift in Sources */,
 				B5D45106288515A10011665E /* WeatherView.swift in Sources */,
 				B5AC0CE3288288520045FBB5 /* StatisticViewController.swift in Sources */,

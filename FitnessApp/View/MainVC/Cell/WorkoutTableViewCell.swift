@@ -27,7 +27,6 @@ class WorkoutTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     private func setView() {
         backgroundColor = .clear
         selectionStyle = .none
