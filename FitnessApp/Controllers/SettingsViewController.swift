@@ -96,7 +96,6 @@ class SettingsViewController: UIViewController {
         addTaps()
     }
     
-    
     private func setupViews(_ subviews: UIView...) {
         
         view.backgroundColor = .specialBackground
@@ -163,7 +162,7 @@ class SettingsViewController: UIViewController {
 //    private func setDelegate() {
 //        firstNameTextField.delegate = self
 //    }
-        
+        //????
     private func addTaps() {
         let tapScreen = UITapGestureRecognizer(target: self, action: #selector(hideKeyboeard))
         tapScreen.cancelsTouchesInView = false
