@@ -99,6 +99,8 @@ class NewWorkoutViewController: UIViewController {
         )
 
         setConstraints()
+        addTaps()
+        setDelegate()
     }
     
     @objc private func closeButtonTapp() {
@@ -109,6 +111,27 @@ class NewWorkoutViewController: UIViewController {
         
     }
     
+    private func setDelegate() {
+        nameTextField.delegate = self
+    }
+    
+    private func addTaps() {
+        let tapScreen = UITapGestureRecognizer(target: self, action: #selector(hideKeyboeard))
+        tapScreen.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapScreen)
+    }
+    
+    @objc private func hideKeyboeard() {
+        view.endEditing(true)
+    }
+    
+}
+
+extension NewWorkoutViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        nameTextField.resignFirstResponder()
+    }
 }
 
 extension NewWorkoutViewController {

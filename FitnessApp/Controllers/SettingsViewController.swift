@@ -13,6 +13,7 @@ class SettingsViewController: UIViewController {
        let scrollView = UIScrollView()
         scrollView.bounces = false
         scrollView.delaysContentTouches = false
+        scrollView.showsVerticalScrollIndicator = false
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         return scrollView
     }()
@@ -57,8 +58,8 @@ class SettingsViewController: UIViewController {
     private let secondNameLabel = UILabel(text: "Second name", textColor: .specialLightBrown)
     private let firstNameLabel = UILabel(text: "First name",textColor: .specialLightBrown)
     
-    private let firstNameTextField = UITextField(backgroundColor: .specialBrown)
-    private let secondNameTextField = UITextField(backgroundColor: .specialBrown)
+    private let firstNameTextField = UITextField(backgroundColor: .specialBrown, keyboardType: .default)
+    private let secondNameTextField = UITextField(backgroundColor: .specialBrown, keyboardType: .default)
     private let heightTextField = UITextField(backgroundColor: .specialBrown)
     private let weightTextField = UITextField(backgroundColor: .specialBrown)
     private let targetTextField = UITextField(backgroundColor: .specialBrown)
@@ -92,7 +93,10 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
         setupViews(editingProfileLabel, closeButton, addPhotoView, addPhotoImageView, saveButton )
         setConstraints()
+        addTaps()
+      //  setDelegate()
     }
+    
     
     private func setupViews(_ subviews: UIView...) {
         
@@ -155,7 +159,31 @@ class SettingsViewController: UIViewController {
     @objc private func saveButtonTapped() {
         
     }
+    
+    
+//    private func setDelegate() {
+//        firstNameTextField.delegate = self
+//    }
+        
+    private func addTaps() {
+        let tapScreen = UITapGestureRecognizer(target: self, action: #selector(hideKeyboeard))
+        tapScreen.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapScreen)
+    }
+    
+    @objc private func hideKeyboeard() {
+        view.endEditing(true)
+    }
+    
 }
+
+//extension SettingsViewController: UITextFieldDelegate {
+//
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        firstNameTextField.resignFirstResponder()
+//    }
+//
+//}
 
 extension SettingsViewController {
     

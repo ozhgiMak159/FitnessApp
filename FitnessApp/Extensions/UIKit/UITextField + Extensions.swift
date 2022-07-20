@@ -9,7 +9,7 @@ import UIKit
 
 extension UITextField {
     
-    convenience init(backgroundColor: UIColor) {
+    convenience init(backgroundColor: UIColor, keyboardType: UIKeyboardType = .numberPad  ) {
         self.init()
         
         self.backgroundColor = backgroundColor
@@ -21,7 +21,7 @@ extension UITextField {
         self.leftViewMode = .always
         self.clearButtonMode = .always
         self.returnKeyType = .done
-        self.keyboardType = .numberPad
+        self.keyboardType = keyboardType
         self.translatesAutoresizingMaskIntoConstraints = false
     }
     
