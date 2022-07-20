@@ -10,9 +10,9 @@ import UIKit
 class RepsOrTimers: UIView {
     
     private let setsLabel = UILabel(text: "Sets", font: .robotoMedium18())
-    private let numberOfSetLabel = UILabel(text: "1", font: .robotoMedium24())
+    private let numberOfSetLabel = UILabel(text: "0", font: .robotoMedium24())
     private let repsLabel = UILabel(text: "Reps", font: .robotoMedium18())
-    private let numberOfRepsLabel = UILabel(text: "1", font: .robotoMedium24())
+    private let numberOfRepsLabel = UILabel(text: "0", font: .robotoMedium24())
     private let timerLabel = UILabel(text: "Timer", font: .robotoMedium18())
     private let numberOfTimerLabel = UILabel(text: "0 min", font: .robotoMedium24())
     private let repeatOrTimerLabel = UILabel(text: "Choose repeat or timer", textColor: .specialLightBrown)
@@ -29,6 +29,8 @@ class RepsOrTimers: UIView {
         super.init(frame: frame)
         setViews(setsSlider, repeatOrTimerLabel, repsSlider, timerSlider )
         addTargetSliders()
+        setNegative(label: timerLabel, numberLabel: numberOfTimerLabel, slider: timerSlider)
+        setNegative(label: repsLabel, numberLabel: numberOfRepsLabel, slider: repsSlider)
         setConstraint()
     }
     
@@ -42,18 +44,55 @@ class RepsOrTimers: UIView {
         timerSlider.addTarget(self, action: #selector(timerSliderChanged), for: .valueChanged)
     }
     
+    
+    
     @objc private func setsSliderChanged() {
+        numberOfSetLabel.text = String(Int(setsSlider.value))
+    }
+    
+    @objc private func repsSliderChanged() {
+        numberOfRepsLabel.text = String(Int(repsSlider.value))
         
+        setNegative(label: timerLabel, numberLabel: numberOfTimerLabel, slider: timerSlider)
+        setActive(label: repsLabel, numberLabel: numberOfRepsLabel, slider: repsSlider)
     }
     
     @objc private func timerSliderChanged() {
         
+        let (min, sec) = { (secs: Int) -> (Int, Int) in
+            return ((secs % 3600) / 60, (secs % 3600) % 60)} (Int(timerSlider.value))
+        
+        numberOfTimerLabel.text = (sec != 0
+                                   ? "\(min) min \(sec) sec"
+                                   : "\(min) min")
+        
+        setNegative(label: repsLabel, numberLabel: numberOfRepsLabel, slider: repsSlider)
+        setActive(label: timerLabel, numberLabel: numberOfTimerLabel, slider: timerSlider)
     }
     
-    @objc private func repsSliderChanged() {
-        
+    private func setActive(label: UILabel, numberLabel: UILabel, slider: UISlider) {
+        label.alpha = 1
+        numberLabel.alpha = 1
+        slider.alpha = 1
     }
-
+    
+    private func setNegative(label: UILabel, numberLabel: UILabel, slider: UISlider) {
+        label.alpha = 0.5
+        numberLabel.alpha = 0.5
+        
+//        if repsSlider.value == 0 {
+//            numberLabel.text = "0"
+//        } else if timerSlider.value == 0 {
+//            numberLabel.text = "min 0 sec 0"
+//        }
+        numberLabel.text = "0"
+        slider.alpha = 0.5
+        slider.value = 0
+    }
+    
+    
+    
+    
     private func setViews(_ subviews: UIView...) {
         backgroundColor = .specialBrown
         layer.cornerRadius = 15

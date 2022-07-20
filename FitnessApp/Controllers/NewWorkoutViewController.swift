@@ -13,6 +13,7 @@ class NewWorkoutViewController: UIViewController {
        let scrollView = UIScrollView()
         scrollView.bounces = false
         scrollView.delaysContentTouches = false
+        scrollView.showsVerticalScrollIndicator = false
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         return scrollView
     }()
