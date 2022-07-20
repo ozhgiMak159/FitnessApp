@@ -58,8 +58,8 @@ class SettingsViewController: UIViewController {
     private let secondNameLabel = UILabel(text: "Second name", textColor: .specialLightBrown)
     private let firstNameLabel = UILabel(text: "First name",textColor: .specialLightBrown)
     
-    private let firstNameTextField = UITextField(backgroundColor: .specialBrown, keyboardType: .default)
-    private let secondNameTextField = UITextField(backgroundColor: .specialBrown, keyboardType: .default)
+    private let firstNameTextField = UITextField(backgroundColor: .specialBrown, keyboardType: .emailAddress)
+    private let secondNameTextField = UITextField(backgroundColor: .specialBrown, keyboardType: .emailAddress)
     private let heightTextField = UITextField(backgroundColor: .specialBrown)
     private let weightTextField = UITextField(backgroundColor: .specialBrown)
     private let targetTextField = UITextField(backgroundColor: .specialBrown)
@@ -94,6 +94,7 @@ class SettingsViewController: UIViewController {
         setupViews(editingProfileLabel, closeButton, addPhotoView, addPhotoImageView, saveButton )
         setConstraints()
         addTaps()
+      //  add()
       //  setDelegate()
     }
     
@@ -177,13 +178,16 @@ class SettingsViewController: UIViewController {
     
 }
 
-//extension SettingsViewController: UITextFieldDelegate {
-//
+extension SettingsViewController: UITextFieldDelegate {
+
 //    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        firstNameTextField.resignFirstResponder()
-//    }
+//        firstNameTextField.isSecureTextEntry = false
 //
-//}
+//        return true
+//
+//    }
+
+}
 
 extension SettingsViewController {
     

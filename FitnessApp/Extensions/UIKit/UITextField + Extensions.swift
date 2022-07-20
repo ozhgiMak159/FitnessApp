@@ -22,7 +22,15 @@ extension UITextField {
         self.clearButtonMode = .always
         self.returnKeyType = .done
         self.keyboardType = keyboardType
+        self.isSecureTextEntry = false
+        //self.inputAssistantItem.leadingBarButtonGroups = []
+//        self.inputAssistantItem.trailingBarButtonGroups = []
         self.translatesAutoresizingMaskIntoConstraints = false
+        
+//        if #available(iOS 12.0, *) {
+//            self.inputAssistantItem.leadingBarButtonGroups = []
+//            self.inputAssistantItem.trailingBarButtonGroups = []
+//        }
     }
     
     
