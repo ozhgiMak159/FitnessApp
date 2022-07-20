@@ -94,8 +94,6 @@ class SettingsViewController: UIViewController {
         setupViews(editingProfileLabel, closeButton, addPhotoView, addPhotoImageView, saveButton )
         setConstraints()
         addTaps()
-      //  add()
-      //  setDelegate()
     }
     
     
