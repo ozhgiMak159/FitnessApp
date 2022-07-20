@@ -23,7 +23,10 @@ class CalendarView: UIView {
     
     private let collectionView: UICollectionView = {
        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.bounces = false
+        collectionView.showsHorizontalScrollIndicator = false
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .none
         return collectionView
@@ -70,6 +73,32 @@ class CalendarView: UIView {
         imagePerson.layer.cornerRadius = imagePerson.frame.height / 2
     }
     
+    //?
+    private func weekArray() -> [[String]] {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "ru_RU")
+        dateFormatter.dateFormat = "EEEEEE"
+        
+        var weekArray: [[String]] = [[],[]]
+        let calendar = Calendar.current
+        let today = Date()
+        
+        for i in 0...7 {
+            let date = calendar.date(byAdding: .weekday, value: i, to: today)
+            guard let date = date else { return weekArray }
+            
+            let components = calendar.dateComponents([.day], from: date)
+            weekArray[1].append(String(components.day ?? 0))
+            
+            let weekDay = dateFormatter.string(from: date)
+            weekArray[0].append(String(weekDay))
+        }
+        
+        return weekArray
+    }
+    
+    
+    
     private func setConstraints() {
         NSLayoutConstraint.activate([
             imagePerson.topAnchor.constraint(equalTo: topAnchor, constant: -40),
@@ -107,6 +136,11 @@ extension CalendarView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifierCollectionCell, for: indexPath) as! CalendarCollectionViewCell
+        cell.cellConfigure(weekArray: weekArray(), indexPath: indexPath)
+        
+        if indexPath.item == 0 {
+            collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .left)
+        }
         
         return cell
     }

@@ -9,8 +9,8 @@ import UIKit
 
 class DateAndRepeatView: UIView {
     
-    private let dateLabel = UILabel(text: "Date", font: .robotoMedium22())
-    private let repeatLabel = UILabel(text: "Repeat every 7 days", font: .robotoMedium22())
+    private let dateLabel = UILabel(text: "Date", font: .robotoMedium18())
+    private let repeatLabel = UILabel(text: "Repeat every 7 days", font: .robotoMedium18())
     
     private let dataPicker: UIDatePicker = {
        let picker = UIDatePicker()
