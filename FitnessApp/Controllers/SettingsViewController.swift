@@ -92,10 +92,19 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews(editingProfileLabel, closeButton, addPhotoView, addPhotoImageView, saveButton )
-        setConstraints()
+        setDelegate(
+            textFields:
+            firstNameTextField,
+            secondNameTextField,
+            heightTextField,
+            weightTextField,
+            targetTextField
+        )
+        
         addTaps()
+        setConstraints()
     }
-    
+        
     private func setupViews(_ subviews: UIView...) {
         
         view.backgroundColor = .specialBackground
@@ -158,11 +167,12 @@ class SettingsViewController: UIViewController {
         
     }
     
+    private func setDelegate(textFields: UITextField...) {
+        textFields.forEach { setDelegateTextF in
+            setDelegateTextF.delegate = self
+        }
+    }
     
-//    private func setDelegate() {
-//        firstNameTextField.delegate = self
-//    }
-        //????
     private func addTaps() {
         let tapScreen = UITapGestureRecognizer(target: self, action: #selector(hideKeyboeard))
         tapScreen.cancelsTouchesInView = false
@@ -176,14 +186,27 @@ class SettingsViewController: UIViewController {
 }
 
 extension SettingsViewController: UITextFieldDelegate {
-
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        firstNameTextField.isSecureTextEntry = false
-//
-//        return true
-//
-//    }
-
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        let keyboardToolbar = UIToolbar()
+        keyboardToolbar.sizeToFit()
+        textField.inputAccessoryView = keyboardToolbar
+        
+        let doneButton = UIBarButtonItem(
+            barButtonSystemItem: .done,
+            target: self,
+            action: #selector(hideKeyboeard)
+        )
+        
+        let flexBarButton = UIBarButtonItem(
+            barButtonSystemItem: .flexibleSpace,
+            target: nil,
+            action: nil
+        )
+        
+        keyboardToolbar.items = [flexBarButton, doneButton]
+    }
+    
 }
 
 extension SettingsViewController {
