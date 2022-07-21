@@ -53,6 +53,22 @@ class SettingsViewController: UIViewController {
         return view
     }()
     
+    private let wrongButton: UIButton = {
+       let button = UIButton()
+        button.setImage(UIImage(systemName: "questionmark.circle"), for: .normal)
+        button.addTarget(self, action: #selector(tapAlert), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    private let wrongButton1: UIButton = {
+       let button = UIButton()
+        button.setImage(UIImage(systemName: "questionmark.circle"), for: .normal)
+        button.addTarget(self, action: #selector(tapAlert), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
     private let heightLabel = UILabel(text: "Height", textColor: .specialLightBrown)
     private let weightLabel = UILabel(text: "Weight", textColor: .specialLightBrown)
     private let targetLabel = UILabel(text: "Target", textColor: .specialLightBrown)
@@ -79,9 +95,6 @@ class SettingsViewController: UIViewController {
     
     private var firstNameStackView = UIStackView()
     private var secondNameStackView = UIStackView()
-    private var heightStackView = UIStackView()
-    private var weightStackView = UIStackView()
-    private var targetStackView = UIStackView()
     private var generalStackView = UIStackView()
     
     
@@ -93,14 +106,12 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews(editingProfileLabel, closeButton, addPhotoView, addPhotoImageView, saveButton )
-        setDelegate(
-            textFields:
+        setDelegate(textFields:
             firstNameTextField,
             secondNameTextField,
             heightTextField,
             weightTextField,
-            targetTextField
-        )
+            targetTextField)
     
         addTaps()
         setupKeyboard()
@@ -116,10 +127,13 @@ class SettingsViewController: UIViewController {
             scrollView.addSubview(subview)
         }
         
+        firstNameStackView = UIStackView(arrangedSubviews: [firstNameLabel, wrongButton], axis: .horizontal, distribution: .equalCentering, spacing: 0)
+        secondNameStackView = UIStackView(arrangedSubviews: [secondNameLabel, wrongButton1], axis: .horizontal, distribution: .equalCentering, spacing: 0)
+        
         generalStackView = UIStackView(
             arrangedSubviews: [
-                firstNameLabel, firstNameTextField,
-                secondNameLabel, secondNameTextField,
+                firstNameStackView, firstNameTextField,
+                secondNameStackView, secondNameTextField,
                 heightLabel, heightTextField,
                 weightLabel, weightTextField,
                 targetLabel, targetTextField
@@ -127,7 +141,8 @@ class SettingsViewController: UIViewController {
             axis: .vertical,
             spacing: 6
         )
-
+        
+      
         scrollView.addSubview(generalStackView)
     }
     
@@ -135,9 +150,14 @@ class SettingsViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    @objc private func tapAlert() {
+        print("Tapp")
+    }
+    
     @objc private func saveButtonTapped() {
         
     }
+    
     
     private func setDelegate(textFields: UITextField...) {
         textFields.forEach { setDelegateTextF in
@@ -167,10 +187,9 @@ extension SettingsViewController: UITextFieldDelegate {
         }
     }
     
-    
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        print("Зеленый")
         return true
     }
     
@@ -219,9 +238,8 @@ extension SettingsViewController {
         ])
         
 //        NSLayoutConstraint.activate([
-//
-//
-//
+//            wrongButton.heightAnchor.constraint(equalToConstant: 20),
+//            wrongButton.widthAnchor.constraint(equalToConstant: 20)
 //        ])
         
         
@@ -237,6 +255,7 @@ extension SettingsViewController {
             heightTextField.heightAnchor.constraint(equalToConstant: 40),
             weightTextField.heightAnchor.constraint(equalToConstant: 40),
             targetTextField.heightAnchor.constraint(equalToConstant: 40),
+           
 
             generalStackView.topAnchor.constraint(equalTo: addPhotoView.bottomAnchor, constant: 20),
             generalStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
