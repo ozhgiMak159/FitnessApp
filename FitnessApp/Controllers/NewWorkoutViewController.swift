@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 class NewWorkoutViewController: UIViewController {
     
@@ -88,6 +89,17 @@ class NewWorkoutViewController: UIViewController {
         return button
     }()
     
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        keyboardManagerVisible(false)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        keyboardManagerVisible(true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView(
@@ -128,13 +140,21 @@ class NewWorkoutViewController: UIViewController {
 }
 
 extension NewWorkoutViewController: UITextFieldDelegate {
-    
+        
+    // когда заканчиивается редактироавния
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         nameTextField.resignFirstResponder()
     }
+    
+    
 }
 
 extension NewWorkoutViewController {
+    
+    private func keyboardManagerVisible(_ state: Bool) {
+        IQKeyboardManager.shared.enableAutoToolbar = state
+    }
+    
     private func setupView(_ subviews: UIView...) {
         view.backgroundColor = .specialBackground
         view.addSubview(scrollView)

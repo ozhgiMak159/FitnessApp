@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 class SettingsViewController: UIViewController {
     
@@ -102,6 +103,7 @@ class SettingsViewController: UIViewController {
         )
     
         addTaps()
+        setupKeyboard()
         setConstraints()
     }
         
@@ -114,48 +116,18 @@ class SettingsViewController: UIViewController {
             scrollView.addSubview(subview)
         }
         
-        firstNameStackView = UIStackView(
-            arrangedSubviews: [firstNameLabel, firstNameTextField],
-            axis: .vertical,
-            spacing: 3
-        )
-        
-        secondNameStackView = UIStackView(
-            arrangedSubviews: [secondNameLabel, secondNameTextField],
-            axis: .vertical,
-            spacing: 3
-        )
-        
-        heightStackView = UIStackView(
-            arrangedSubviews: [heightLabel, heightTextField],
-            axis: .vertical,
-            spacing: 3
-        )
-        
-        weightStackView = UIStackView(
-            arrangedSubviews: [weightLabel, weightTextField],
-            axis: .vertical,
-            spacing: 3
-        )
-        
-        targetStackView = UIStackView(
-            arrangedSubviews: [targetLabel, targetTextField],
-            axis: .vertical,
-            spacing: 3
-        )
-        
         generalStackView = UIStackView(
             arrangedSubviews: [
-                firstNameStackView,
-                secondNameStackView,
-                heightStackView,
-                weightStackView,
-                targetStackView
+                firstNameLabel, firstNameTextField,
+                secondNameLabel, secondNameTextField,
+                heightLabel, heightTextField,
+                weightLabel, weightTextField,
+                targetLabel, targetTextField
             ],
             axis: .vertical,
-            spacing: 20
+            spacing: 6
         )
-        
+
         scrollView.addSubview(generalStackView)
     }
     
@@ -187,37 +159,19 @@ class SettingsViewController: UIViewController {
 
 extension SettingsViewController: UITextFieldDelegate {
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        view.endEditing(true)
-        return true
-    }
-    
-    
-    
-//    func textFieldDidBeginEditing(_ textField: UITextField) {
-//        let keyboardToolbar = UIToolbar()
-//        keyboardToolbar.sizeToFit()
-//        textField.inputAccessoryView = keyboardToolbar
-//
-//        let doneButton = UIBarButtonItem(
-//            barButtonSystemItem: .done,
-//            target: self,
-//            action: #selector(hideKeyboard)
-//        )
-//
-//        let flexBarButton = UIBarButtonItem(
-//            barButtonSystemItem: .flexibleSpace,
-//            target: nil,
-//            action: nil
-//        )
-//
-//
-//        keyboardToolbar.items = [flexBarButton, doneButton]
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//       // view.endEditing(true)
+//        return true
 //    }
     
 }
 
 extension SettingsViewController {
+    
+    private func setupKeyboard() {
+        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.toolbarTintColor = .specialBlack
+    }
     
     private func setConstraints() {
         
@@ -254,13 +208,26 @@ extension SettingsViewController {
             addPhotoView.heightAnchor.constraint(equalToConstant: 70)
         ])
         
+//        NSLayoutConstraint.activate([
+//
+//
+//
+//        ])
+        
+        
+        
+        
+        
+        
+        
+        
         NSLayoutConstraint.activate([
             firstNameTextField.heightAnchor.constraint(equalToConstant: 40),
             secondNameTextField.heightAnchor.constraint(equalToConstant: 40),
             heightTextField.heightAnchor.constraint(equalToConstant: 40),
             weightTextField.heightAnchor.constraint(equalToConstant: 40),
             targetTextField.heightAnchor.constraint(equalToConstant: 40),
-            
+
             generalStackView.topAnchor.constraint(equalTo: addPhotoView.bottomAnchor, constant: 20),
             generalStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             generalStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
