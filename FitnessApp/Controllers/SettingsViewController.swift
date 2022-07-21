@@ -159,10 +159,20 @@ class SettingsViewController: UIViewController {
 
 extension SettingsViewController: UITextFieldDelegate {
     
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//       // view.endEditing(true)
-//        return true
-//    }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == firstNameTextField || textField == secondNameTextField {
+            IQKeyboardManager.shared.toolbarDoneBarButtonItemText = ""
+        } else {
+            IQKeyboardManager.shared.toolbarDoneBarButtonItemText = "Done"
+        }
+    }
+    
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     
 }
 
