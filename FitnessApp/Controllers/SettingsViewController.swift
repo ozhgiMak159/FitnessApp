@@ -100,7 +100,7 @@ class SettingsViewController: UIViewController {
             weightTextField,
             targetTextField
         )
-        
+    
         addTaps()
         setConstraints()
     }
@@ -174,12 +174,12 @@ class SettingsViewController: UIViewController {
     }
     
     private func addTaps() {
-        let tapScreen = UITapGestureRecognizer(target: self, action: #selector(hideKeyboeard))
+        let tapScreen = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         tapScreen.cancelsTouchesInView = false
         view.addGestureRecognizer(tapScreen)
     }
     
-    @objc private func hideKeyboeard() {
+    @objc private func hideKeyboard() {
         view.endEditing(true)
     }
     
@@ -187,25 +187,33 @@ class SettingsViewController: UIViewController {
 
 extension SettingsViewController: UITextFieldDelegate {
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        let keyboardToolbar = UIToolbar()
-        keyboardToolbar.sizeToFit()
-        textField.inputAccessoryView = keyboardToolbar
-        
-        let doneButton = UIBarButtonItem(
-            barButtonSystemItem: .done,
-            target: self,
-            action: #selector(hideKeyboeard)
-        )
-        
-        let flexBarButton = UIBarButtonItem(
-            barButtonSystemItem: .flexibleSpace,
-            target: nil,
-            action: nil
-        )
-        
-        keyboardToolbar.items = [flexBarButton, doneButton]
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        view.endEditing(true)
+        return true
     }
+    
+    
+    
+//    func textFieldDidBeginEditing(_ textField: UITextField) {
+//        let keyboardToolbar = UIToolbar()
+//        keyboardToolbar.sizeToFit()
+//        textField.inputAccessoryView = keyboardToolbar
+//
+//        let doneButton = UIBarButtonItem(
+//            barButtonSystemItem: .done,
+//            target: self,
+//            action: #selector(hideKeyboard)
+//        )
+//
+//        let flexBarButton = UIBarButtonItem(
+//            barButtonSystemItem: .flexibleSpace,
+//            target: nil,
+//            action: nil
+//        )
+//
+//
+//        keyboardToolbar.items = [flexBarButton, doneButton]
+//    }
     
 }
 
