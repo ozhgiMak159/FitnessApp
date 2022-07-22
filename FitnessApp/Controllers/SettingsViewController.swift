@@ -13,8 +13,7 @@ class SettingsViewController: UIViewController {
     private let scrollView: UIScrollView = {
        let scrollView = UIScrollView()
         scrollView.bounces = false
-        scrollView.delaysContentTouches = false
-        scrollView.showsVerticalScrollIndicator = false
+        scrollView.delaysContentTouches = true
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         return scrollView
     }()
@@ -104,6 +103,11 @@ class SettingsViewController: UIViewController {
     private let numberPad: String.ValidTypes = .numberPad
     
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        phoneHeightUnlock()
+    }
+    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         addPhotoImageView.layer.cornerRadius = addPhotoImageView.frame.height / 2
@@ -148,8 +152,26 @@ class SettingsViewController: UIViewController {
             spacing: 6
         )
         
-      
         scrollView.addSubview(generalStackView)
+    }
+    
+    private func phoneHeightUnlock() {
+        if view.frame.height < 570 {
+            scrollView.isScrollEnabled = true
+            scrollView.showsVerticalScrollIndicator = true
+        } else {
+            scrollView.isScrollEnabled = false
+        }
+    }
+    
+    private func activeSaveButton() {
+        if firstNameTextField.text!.count > 2 && secondNameTextField.text!.count > 2 && heightTextField.text!.count > 2 && weightTextField.text!.count > 2 && targetTextField.text!.count > 2 {
+            saveButton.isEnabled = true
+            print("кнопка активна")
+        } else {
+            saveButton.isEnabled = false
+            print("кнопка не активна")
+        }
     }
     
     @objc private func closeButtonTapped() {
@@ -179,6 +201,7 @@ class SettingsViewController: UIViewController {
     
     @objc private func hideKeyboard() {
         view.endEditing(true)
+        activeSaveButton()
     }
     
     private func setTextField(textField: UITextField, label: UILabel, wrongButton: UIButton? = nil, validType: String.ValidTypes, string: String, range: NSRange) {
@@ -220,10 +243,12 @@ extension SettingsViewController: UITextFieldDelegate {
         } else {
             IQKeyboardManager.shared.toolbarDoneBarButtonItemText = "Done"
         }
+        activeSaveButton()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
+        activeSaveButton()
         return true
     }
     
@@ -244,6 +269,8 @@ extension SettingsViewController: UITextFieldDelegate {
         default:
             targetLabel.textColor = .specialLightBrown
         }
+        
+       
         
         return true
     }
