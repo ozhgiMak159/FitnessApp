@@ -165,12 +165,12 @@ class SettingsViewController: UIViewController {
     }
     
     private func activeSaveButton() {
-        if firstNameTextField.text!.count > 2 && secondNameTextField.text!.count > 2 && heightTextField.text!.count > 2 && weightTextField.text!.count > 2 && targetTextField.text!.count > 2 {
+        if firstNameTextField.text!.count > 1 && secondNameTextField.text!.count > 1 && heightTextField.text!.count > 1 && weightTextField.text!.count > 1 && targetTextField.text!.count > 1 {
             saveButton.isEnabled = true
-            print("кнопка активна")
+          //  print("кнопка активна")
         } else {
             saveButton.isEnabled = false
-            print("кнопка не активна")
+          //  print("кнопка не активна")
         }
     }
     
@@ -202,6 +202,7 @@ class SettingsViewController: UIViewController {
     @objc private func hideKeyboard() {
         view.endEditing(true)
         activeSaveButton()
+       // print("Do2ne")
     }
     
     private func setTextField(textField: UITextField, label: UILabel, wrongButton: UIButton? = nil, validType: String.ValidTypes, string: String, range: NSRange) {
@@ -243,13 +244,17 @@ extension SettingsViewController: UITextFieldDelegate {
         } else {
             IQKeyboardManager.shared.toolbarDoneBarButtonItemText = "Done"
         }
-        activeSaveButton()
+       // activeSaveButton()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
+        textField.resignFirstResponder()
         activeSaveButton()
         return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        activeSaveButton()
     }
     
     
@@ -269,9 +274,6 @@ extension SettingsViewController: UITextFieldDelegate {
         default:
             targetLabel.textColor = .specialLightBrown
         }
-        
-       
-        
         return true
     }
     
