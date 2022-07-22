@@ -32,8 +32,4 @@ extension String {
         
         return NSPredicate(format: format, regex).evaluate(with: self)
     }
-    
-    
-    
-    
 }

@@ -101,6 +101,7 @@ class SettingsViewController: UIViewController {
     
     private let firstNameValidType: String.ValidTypes = .text
     private let numberPad: String.ValidTypes = .numberPad
+    private var validator = ValidNumber()
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -231,6 +232,20 @@ class SettingsViewController: UIViewController {
             wrongButton?.isHidden = false
             wrongButton?.tintColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
         }
+        
+        /*
+         struct ValidNumber {
+             let numbers = "1234567890"
+             
+             func hasNumbers(text: String) -> Bool {
+                 for number in numbers {
+                     if text.contains(number) { return true }
+                 }
+                 return false
+             }
+             
+         }
+         */
 
     }
     
@@ -290,6 +305,7 @@ extension SettingsViewController: UITextFieldDelegate {
                 string: string,
                 range: range
             )
+            
         case secondNameTextField:
             setTextField(
                 textField: secondNameTextField,
