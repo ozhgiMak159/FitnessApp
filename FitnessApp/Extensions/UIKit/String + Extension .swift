@@ -10,11 +10,13 @@ import UIKit
 extension String {
     
     enum ValidTypes {
-        case firstName
+        case text
+        case numberPad
     }
     
     enum Regex: String {
-        case firstName = "[a-zA-Zа-яА-я]{2,10}"
+        case textReg = "[a-zA-Zа-яА-я]{2,10}"
+        case numberPadReg = "[0-9]{2,3}"
     }
     
     func isValid(validType: ValidTypes) -> Bool {
@@ -22,8 +24,10 @@ extension String {
         var regex = ""
         
         switch validType {
-        case .firstName:
-            regex = Regex.firstName.rawValue
+        case .text:
+            regex = Regex.textReg.rawValue
+        case .numberPad:
+            regex = Regex.numberPadReg.rawValue
         }
         
         return NSPredicate(format: format, regex).evaluate(with: self)

@@ -99,7 +99,8 @@ class SettingsViewController: UIViewController {
     private var secondNameStackView = UIStackView()
     private var generalStackView = UIStackView()
     
-    private let firstNameValidType: String.ValidTypes = .firstName
+    private let firstNameValidType: String.ValidTypes = .text
+    private let numberPad: String.ValidTypes = .numberPad
     
     
     override func viewWillLayoutSubviews() {
@@ -180,6 +181,7 @@ class SettingsViewController: UIViewController {
     }
     
     private func setTextField(textField: UITextField, label: UILabel, wrongButton: UIButton, validType: String.ValidTypes, string: String, range: NSRange) {
+
         let text = (textField.text ?? "") + string
         let result: String
 
@@ -201,7 +203,9 @@ class SettingsViewController: UIViewController {
         } else {
             label.textColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
             wrongButton.isHidden = false
+            wrongButton.tintColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
         }
+
     }
     
 }
@@ -223,6 +227,7 @@ extension SettingsViewController: UITextFieldDelegate {
     
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+
         switch textField {
         case firstNameTextField:
             setTextField(
@@ -233,7 +238,6 @@ extension SettingsViewController: UITextFieldDelegate {
                 string: string,
                 range: range
             )
-            
         case secondNameTextField:
             setTextField(
                 textField: secondNameTextField,
@@ -243,9 +247,33 @@ extension SettingsViewController: UITextFieldDelegate {
                 string: string,
                 range: range
             )
-            
+        case heightTextField:
+            setTextField(
+                textField: heightTextField,
+                label: heightLabel,
+                wrongButton: wrongButton1,
+                validType: numberPad,
+                string: string,
+                range: range
+            )
+        case weightTextField:
+            setTextField(
+                textField: weightTextField,
+                label: weightLabel,
+                wrongButton: wrongButton1,
+                validType: numberPad,
+                string: string,
+                range: range
+            )
         default:
-            break
+            setTextField(
+                textField: targetTextField,
+                label: targetLabel,
+                wrongButton: wrongButton1,
+                validType: numberPad,
+                string: string,
+                range: range
+            )
         }
 
         return false
