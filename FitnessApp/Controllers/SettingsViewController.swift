@@ -179,7 +179,7 @@ class SettingsViewController: UIViewController {
         view.endEditing(true)
     }
     
-    private func setTextField(textField: UITextField, label: UILabel, validType: String.ValidTypes, string: String, range: NSRange) {
+    private func setTextField(textField: UITextField, label: UILabel, wrongButton: UIButton, validType: String.ValidTypes, string: String, range: NSRange) {
         let text = (textField.text ?? "") + string
         let result: String
 
@@ -194,10 +194,13 @@ class SettingsViewController: UIViewController {
 
         if result.isValid(validType: validType) {
             label.textColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
+            wrongButton.isHidden = true
         } else if textField.text == "" {
             label.textColor = .specialLightBrown
+            wrongButton.isHidden = true
         } else {
             label.textColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+            wrongButton.isHidden = false
         }
     }
     
@@ -225,6 +228,7 @@ extension SettingsViewController: UITextFieldDelegate {
             setTextField(
                 textField: firstNameTextField,
                 label: firstNameLabel,
+                wrongButton: wrongButton,
                 validType: firstNameValidType,
                 string: string,
                 range: range
@@ -234,6 +238,7 @@ extension SettingsViewController: UITextFieldDelegate {
             setTextField(
                 textField: secondNameTextField,
                 label: secondNameLabel,
+                wrongButton: wrongButton1,
                 validType: firstNameValidType,
                 string: string,
                 range: range
