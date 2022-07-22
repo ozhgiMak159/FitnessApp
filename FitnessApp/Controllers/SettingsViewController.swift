@@ -90,6 +90,7 @@ class SettingsViewController: UIViewController {
         button.titleLabel?.font = .robotoBold16()
         button.tintColor = .white
         button.layer.cornerRadius = 10
+        button.isEnabled = false
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
         return button
@@ -180,7 +181,7 @@ class SettingsViewController: UIViewController {
         view.endEditing(true)
     }
     
-    private func setTextField(textField: UITextField, label: UILabel, wrongButton: UIButton, validType: String.ValidTypes, string: String, range: NSRange) {
+    private func setTextField(textField: UITextField, label: UILabel, wrongButton: UIButton? = nil, validType: String.ValidTypes, string: String, range: NSRange) {
 
         let text = (textField.text ?? "") + string
         let result: String
@@ -191,19 +192,20 @@ class SettingsViewController: UIViewController {
         } else {
             result = text
         }
-
+        
+        
         textField.text = result
 
         if result.isValid(validType: validType) {
             label.textColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
-            wrongButton.isHidden = true
-        } else if textField.text == "" {
+            wrongButton?.isHidden = true
+        } else if textField.text!.isEmpty {
             label.textColor = .specialLightBrown
-            wrongButton.isHidden = true
+            wrongButton?.isHidden = true
         } else {
             label.textColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
-            wrongButton.isHidden = false
-            wrongButton.tintColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+            wrongButton?.isHidden = false
+            wrongButton?.tintColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
         }
 
     }
@@ -221,7 +223,28 @@ extension SettingsViewController: UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+        self.view.endEditing(true)
+        return true
+    }
+    
+    
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        
+        switch textField {
+        case firstNameTextField:
+            firstNameLabel.textColor = .specialLightBrown
+            wrongButton.isHidden = true
+        case secondNameTextField:
+            secondNameLabel.textColor = .specialLightBrown
+            wrongButton1.isHidden = true
+        case heightTextField:
+            heightLabel.textColor = .specialLightBrown
+        case weightTextField:
+            weightLabel.textColor = .specialLightBrown
+        default:
+            targetLabel.textColor = .specialLightBrown
+        }
+        
         return true
     }
     
@@ -251,7 +274,6 @@ extension SettingsViewController: UITextFieldDelegate {
             setTextField(
                 textField: heightTextField,
                 label: heightLabel,
-                wrongButton: wrongButton1,
                 validType: numberPad,
                 string: string,
                 range: range
@@ -260,7 +282,6 @@ extension SettingsViewController: UITextFieldDelegate {
             setTextField(
                 textField: weightTextField,
                 label: weightLabel,
-                wrongButton: wrongButton1,
                 validType: numberPad,
                 string: string,
                 range: range
@@ -269,7 +290,6 @@ extension SettingsViewController: UITextFieldDelegate {
             setTextField(
                 textField: targetTextField,
                 label: targetLabel,
-                wrongButton: wrongButton1,
                 validType: numberPad,
                 string: string,
                 range: range
