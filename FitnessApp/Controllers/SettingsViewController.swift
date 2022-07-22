@@ -56,6 +56,7 @@ class SettingsViewController: UIViewController {
     private let wrongButton: UIButton = {
        let button = UIButton()
         button.setImage(UIImage(systemName: "questionmark.circle"), for: .normal)
+        button.isHidden = true
         button.addTarget(self, action: #selector(tapAlert), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -64,6 +65,7 @@ class SettingsViewController: UIViewController {
     private let wrongButton1: UIButton = {
        let button = UIButton()
         button.setImage(UIImage(systemName: "questionmark.circle"), for: .normal)
+        button.isHidden = true
         button.addTarget(self, action: #selector(tapAlert), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -96,6 +98,8 @@ class SettingsViewController: UIViewController {
     private var firstNameStackView = UIStackView()
     private var secondNameStackView = UIStackView()
     private var generalStackView = UIStackView()
+    
+    private let firstNameValidType: String.ValidTypes = .firstName
     
     
     override func viewWillLayoutSubviews() {
@@ -175,6 +179,28 @@ class SettingsViewController: UIViewController {
         view.endEditing(true)
     }
     
+    private func setTextField(textField: UITextField, label: UILabel, validType: String.ValidTypes, string: String, range: NSRange) {
+        let text = (textField.text ?? "") + string
+        let result: String
+
+        if range.length == 1 {
+            let end = text.index(text.startIndex, offsetBy: text.count - 1)
+            result = String(text[text.startIndex..<end])
+        } else {
+            result = text
+        }
+
+        textField.text = result
+
+        if result.isValid(validType: validType) {
+            label.textColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
+        } else if textField.text == "" {
+            label.textColor = .specialLightBrown
+        } else {
+            label.textColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+        }
+    }
+    
 }
 
 extension SettingsViewController: UITextFieldDelegate {
@@ -189,8 +215,35 @@ extension SettingsViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        print("Зеленый")
         return true
+    }
+    
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        switch textField {
+        case firstNameTextField:
+            setTextField(
+                textField: firstNameTextField,
+                label: firstNameLabel,
+                validType: firstNameValidType,
+                string: string,
+                range: range
+            )
+            
+        case secondNameTextField:
+            setTextField(
+                textField: secondNameTextField,
+                label: secondNameLabel,
+                validType: firstNameValidType,
+                string: string,
+                range: range
+            )
+            
+        default:
+            break
+        }
+
+        return false
     }
     
 }
@@ -237,18 +290,7 @@ extension SettingsViewController {
             addPhotoView.heightAnchor.constraint(equalToConstant: 70)
         ])
         
-//        NSLayoutConstraint.activate([
-//            wrongButton.heightAnchor.constraint(equalToConstant: 20),
-//            wrongButton.widthAnchor.constraint(equalToConstant: 20)
-//        ])
-        
-        
-        
-        
-        
-        
-        
-        
+
         NSLayoutConstraint.activate([
             firstNameTextField.heightAnchor.constraint(equalToConstant: 40),
             secondNameTextField.heightAnchor.constraint(equalToConstant: 40),

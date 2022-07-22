@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B53646B82887B849009EE537 /* UISlider + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53646B72887B849009EE537 /* UISlider + Extensions.swift */; };
 		B53646BA2887C326009EE537 /* UITextField + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53646B92887C326009EE537 /* UITextField + Extensions.swift */; };
+		B53E3B60288A5F25001384A4 /* String + Extension .swift in Sources */ = {isa = PBXBuildFile; fileRef = B53E3B5F288A5F25001384A4 /* String + Extension .swift */; };
 		B551E6452889211000684F22 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B551E6442889211000684F22 /* IQKeyboardManagerSwift */; };
 		B59C9301288674B400EF372F /* TypeGymView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59C9300288674B400EF372F /* TypeGymView.swift */; };
 		B59C930328867C0C00EF372F /* ImageTypeGymCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59C930228867C0C00EF372F /* ImageTypeGymCollectionViewCell.swift */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		B53646B72887B849009EE537 /* UISlider + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISlider + Extensions.swift"; sourceTree = "<group>"; };
 		B53646B92887C326009EE537 /* UITextField + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField + Extensions.swift"; sourceTree = "<group>"; };
+		B53E3B5F288A5F25001384A4 /* String + Extension .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extension .swift"; sourceTree = "<group>"; };
 		B59C9300288674B400EF372F /* TypeGymView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeGymView.swift; sourceTree = "<group>"; };
 		B59C930228867C0C00EF372F /* ImageTypeGymCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTypeGymCollectionViewCell.swift; sourceTree = "<group>"; };
 		B59C93042886AC1800EF372F /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				B5AC0CDE288286560045FBB5 /* UILabel + Extensions .swift */,
 				B53646B72887B849009EE537 /* UISlider + Extensions.swift */,
 				B53646B92887C326009EE537 /* UITextField + Extensions.swift */,
+				B53E3B5F288A5F25001384A4 /* String + Extension .swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				B59C930328867C0C00EF372F /* ImageTypeGymCollectionViewCell.swift in Sources */,
 				B59C9301288674B400EF372F /* TypeGymView.swift in Sources */,
 				B59C93052886AC1800EF372F /* SettingsViewController.swift in Sources */,
+				B53E3B60288A5F25001384A4 /* String + Extension .swift in Sources */,
 				B5AC0CD72882858E0045FBB5 /* UIFont + Extensions.swift in Sources */,
 				B53646BA2887C326009EE537 /* UITextField + Extensions.swift in Sources */,
 				B5D4510B288537130011665E /* DateAndReapeatView.swift in Sources */,
