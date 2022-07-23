@@ -55,7 +55,7 @@ class SettingsViewController: UIViewController {
     private let wrongButton: UIButton = {
        let button = UIButton()
         button.setImage(UIImage(systemName: "questionmark.circle"), for: .normal)
-        button.isHidden = true
+        button.isHidden = false
         button.addTarget(self, action: #selector(tapAlert), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -64,7 +64,7 @@ class SettingsViewController: UIViewController {
     private let wrongButton1: UIButton = {
        let button = UIButton()
         button.setImage(UIImage(systemName: "questionmark.circle"), for: .normal)
-        button.isHidden = true
+        button.isHidden = false
         button.addTarget(self, action: #selector(tapAlert), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -116,7 +116,17 @@ class SettingsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupViews(editingProfileLabel, closeButton, addPhotoView, addPhotoImageView, saveButton )
+        setupViews(
+            editingProfileLabel, closeButton,
+            addPhotoView,addPhotoImageView,
+            firstNameLabel, firstNameTextField,wrongButton,
+            secondNameLabel, wrongButton1, secondNameTextField,
+            heightLabel, heightTextField,
+            weightLabel,weightTextField,
+            targetLabel, targetTextField,
+            saveButton
+        )
+        
         setDelegate(textFields:
             firstNameTextField,
             secondNameTextField,
@@ -137,23 +147,6 @@ class SettingsViewController: UIViewController {
         subviews.forEach { subview in
             scrollView.addSubview(subview)
         }
-        
-        firstNameStackView = UIStackView(arrangedSubviews: [firstNameLabel, wrongButton], axis: .horizontal, distribution: .equalCentering, spacing: 0)
-        secondNameStackView = UIStackView(arrangedSubviews: [secondNameLabel, wrongButton1], axis: .horizontal, distribution: .equalCentering, spacing: 0)
-        
-        generalStackView = UIStackView(
-            arrangedSubviews: [
-                firstNameStackView, firstNameTextField,
-                secondNameStackView, secondNameTextField,
-                heightLabel, heightTextField,
-                weightLabel, weightTextField,
-                targetLabel, targetTextField
-            ],
-            axis: .vertical,
-            spacing: 6
-        )
-        
-        scrollView.addSubview(generalStackView)
     }
     
     private func phoneHeightUnlock() {
@@ -388,22 +381,65 @@ extension SettingsViewController {
             addPhotoView.heightAnchor.constraint(equalToConstant: 70)
         ])
         
-
         NSLayoutConstraint.activate([
-            firstNameTextField.heightAnchor.constraint(equalToConstant: 40),
-            secondNameTextField.heightAnchor.constraint(equalToConstant: 40),
-            heightTextField.heightAnchor.constraint(equalToConstant: 40),
-            weightTextField.heightAnchor.constraint(equalToConstant: 40),
-            targetTextField.heightAnchor.constraint(equalToConstant: 40),
-           
-
-            generalStackView.topAnchor.constraint(equalTo: addPhotoView.bottomAnchor, constant: 20),
-            generalStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            generalStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            firstNameLabel.topAnchor.constraint(equalTo: addPhotoView.bottomAnchor, constant: 20),
+            firstNameLabel.leadingAnchor.constraint(equalTo: addPhotoView.leadingAnchor),
+            
+            wrongButton.centerYAnchor.constraint(equalTo: firstNameLabel.centerYAnchor),
+            wrongButton.leadingAnchor.constraint(equalTo: firstNameLabel.trailingAnchor, constant: 5),
+            
+            firstNameTextField.topAnchor.constraint(equalTo: firstNameLabel.bottomAnchor, constant: 5),
+            firstNameTextField.leadingAnchor.constraint(equalTo: addPhotoView.leadingAnchor),
+            firstNameTextField.trailingAnchor.constraint(equalTo: addPhotoView.trailingAnchor),
+            firstNameTextField.heightAnchor.constraint(equalToConstant: 40)
         ])
         
         NSLayoutConstraint.activate([
-            saveButton.topAnchor.constraint(equalTo: generalStackView.bottomAnchor, constant: 30),
+            secondNameLabel.topAnchor.constraint(equalTo: firstNameTextField.bottomAnchor, constant: 10),
+            secondNameLabel.leadingAnchor.constraint(equalTo: firstNameTextField.leadingAnchor),
+            
+            wrongButton1.centerYAnchor.constraint(equalTo: secondNameLabel.centerYAnchor),
+            wrongButton1.leadingAnchor.constraint(equalTo: secondNameLabel.trailingAnchor, constant: 5),
+            
+            secondNameTextField.topAnchor.constraint(equalTo: secondNameLabel.bottomAnchor, constant: 5),
+            secondNameTextField.leadingAnchor.constraint(equalTo: firstNameTextField.leadingAnchor),
+            secondNameTextField.trailingAnchor.constraint(equalTo: firstNameTextField.trailingAnchor),
+            secondNameTextField.heightAnchor.constraint(equalToConstant: 40)
+        ])
+        
+        NSLayoutConstraint.activate([
+            heightLabel.topAnchor.constraint(equalTo: secondNameTextField.bottomAnchor, constant: 10),
+            heightLabel.leadingAnchor.constraint(equalTo: secondNameTextField.leadingAnchor),
+            
+            heightTextField.topAnchor.constraint(equalTo: heightLabel.bottomAnchor, constant: 5),
+            heightTextField.leadingAnchor.constraint(equalTo: secondNameTextField.leadingAnchor),
+            heightTextField.trailingAnchor.constraint(equalTo: secondNameTextField.trailingAnchor),
+            heightTextField.heightAnchor.constraint(equalToConstant: 40)
+        ])
+        
+        NSLayoutConstraint.activate([
+            weightLabel.topAnchor.constraint(equalTo: heightTextField.bottomAnchor, constant: 10),
+            weightLabel.leadingAnchor.constraint(equalTo: heightTextField.leadingAnchor),
+            
+            weightTextField.topAnchor.constraint(equalTo: weightLabel.bottomAnchor, constant: 5),
+            weightTextField.leadingAnchor.constraint(equalTo: heightTextField.leadingAnchor),
+            weightTextField.trailingAnchor.constraint(equalTo: heightTextField.trailingAnchor),
+            weightTextField.heightAnchor.constraint(equalToConstant: 40)
+        ])
+        
+        NSLayoutConstraint.activate([
+            targetLabel.topAnchor.constraint(equalTo: weightTextField.bottomAnchor, constant: 10),
+            targetLabel.leadingAnchor.constraint(equalTo: weightTextField.leadingAnchor),
+            
+            targetTextField.topAnchor.constraint(equalTo: targetLabel.bottomAnchor, constant: 5),
+            targetTextField.leadingAnchor.constraint(equalTo: weightTextField.leadingAnchor),
+            targetTextField.trailingAnchor.constraint(equalTo: weightTextField.trailingAnchor),
+            targetTextField.heightAnchor.constraint(equalToConstant: 40)
+        ])
+        
+        
+        NSLayoutConstraint.activate([
+            saveButton.topAnchor.constraint(equalTo: targetTextField.bottomAnchor, constant: 20),
             saveButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
             saveButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
             saveButton.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -30),
