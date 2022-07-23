@@ -161,57 +161,28 @@ class SettingsViewController: UIViewController {
     private func activeSaveButton() {
         if firstNameTextField.text!.count > 1 && secondNameTextField.text!.count > 1 && heightTextField.text!.count > 1 && weightTextField.text!.count > 1 && targetTextField.text!.count > 1 {
             saveButton.isEnabled = true
-          //  print("кнопка активна")
-        } else {
-            saveButton.isEnabled = false
-          //  print("кнопка не активна")
+            return
         }
         
+        saveButton.isEnabled = false
         
-    
-        /*
-         struct ValidNumber {
-             let numbers = "1234567890"
-             
-             func hasNumbers(text: String) -> Bool {
-                 for number in numbers {
-                     if text.contains(number) { return true }
-                 }
-                 return false
-             }
-             
-         }
-         */
     }
     
     
-    func hasNumbers(text: String) {
+    func hasNumbers() {
         let number = "1234567890"
         
         
         for i in number {
-            if firstNameTextField.text!.contains(i) && secondNameTextField.text!.contains(i) {
-               // print("Кнопка Save блокированя")
+            if firstNameTextField.text!.contains(i) {
+                print("Кнопка Save блокированя")
                 saveButton.isEnabled = false
-            } else {
-              //  print("Кнопка Save раблокированя")
-                saveButton.isEnabled = true
+                return
             }
-            
         }
         
-        
-        
-        
-        
-        //            if text.contains(numb) {
-        ////                saveButton.isEnabled = false
-        //                print("Кнопка Save блокированя")
-        //            } else {
-        //               // saveButton.isEnabled = true
-        //                print("Кнопка Save разблокированя")
-        //            }
-        
+        saveButton.isEnabled = true
+        print("Разблокированна кнопка Save")
     }
     
     
@@ -245,6 +216,7 @@ class SettingsViewController: UIViewController {
     @objc private func hideKeyboard() {
         view.endEditing(true)
         activeSaveButton()
+      
      //   hasNumbers()
         
         print("Скрытия клавы по тапу на вью")
@@ -302,8 +274,8 @@ extension SettingsViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         activeSaveButton()
-      //  hasNumbers()
-        print("Закончил")
+        hasNumbers()
+        print("Ввод закончин")
     }
     
     
@@ -340,8 +312,8 @@ extension SettingsViewController: UITextFieldDelegate {
                 range: range
             )
             
-       // hasNumbers(text: string)
-            
+            print("Начало ввода")
+    
         case secondNameTextField:
             setTextField(
                 textField: secondNameTextField,
@@ -352,7 +324,7 @@ extension SettingsViewController: UITextFieldDelegate {
                 range: range
             )
             
-      //  hasNumbers(text: string)
+      
             
         case heightTextField:
             setTextField(
