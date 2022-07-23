@@ -170,19 +170,20 @@ class SettingsViewController: UIViewController {
     
     
     func hasNumbers() {
-        let number = "1234567890"
-        
-        
+        let number = [
+            "1", "2", "3", "4", "5", "6", "7", "8", "9", "0",
+            "$", "!", "~", "&", "=", "#", "[", "]", ".", "_",
+            "-", "+", "@", " ", "`", "|", "{", "}", "?", "%",
+            "^", "*", "/", "'"
+        ]
+
         for i in number {
-            if firstNameTextField.text!.contains(i) {
-                print("Кнопка Save блокированя")
+            if firstNameTextField.text!.contains(i) || secondNameTextField.text!.contains(i) {
                 saveButton.isEnabled = false
-                return
+                print("Запрещенные знаки")
             }
         }
         
-        saveButton.isEnabled = true
-        print("Разблокированна кнопка Save")
     }
     
     
@@ -216,14 +217,16 @@ class SettingsViewController: UIViewController {
     @objc private func hideKeyboard() {
         view.endEditing(true)
         activeSaveButton()
+        hasNumbers()
       
      //   hasNumbers()
         
-        print("Скрытия клавы по тапу на вью")
+     //   print("Скрытия клавы по тапу на вью")
     }
     
     private func setTextField(textField: UITextField, label: UILabel, wrongButton: UIButton? = nil, validType: String.ValidTypes, string: String, range: NSRange) {
-
+        
+        
         let text = (textField.text ?? "") + string
         let result: String
 
@@ -261,21 +264,24 @@ extension SettingsViewController: UITextFieldDelegate {
         }
        
         saveButton.isEnabled = false
-        print("Тап на текстовое поле")
+      //  print("Тап на текстовое поле")
         
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         activeSaveButton()
-        print("Тап на кнопку Return на клавиатуре")
+        hasNumbers()
+      //  print("Тап на кнопку Return на клавиатуре")
         return true
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         activeSaveButton()
+        
+        // Данный метод отрабатывает
         hasNumbers()
-        print("Ввод закончин")
+   //     print("Ввод закончин")
     }
     
     
@@ -300,7 +306,12 @@ extension SettingsViewController: UITextFieldDelegate {
     
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-
+        
+        //        if number.contains(string) {
+        //            saveButton.isEnabled = false
+        //            print("Запрещенные знаки")
+        //        }
+      
         switch textField {
         case firstNameTextField:
             setTextField(
@@ -312,7 +323,10 @@ extension SettingsViewController: UITextFieldDelegate {
                 range: range
             )
             
-            print("Начало ввода")
+            // Данный метод должен быть тут
+//            hasNumbers(text: string)
+            
+         //   print("Начало ввода")
     
         case secondNameTextField:
             setTextField(
