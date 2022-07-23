@@ -185,7 +185,7 @@ class SettingsViewController: UIViewController {
     }
     
     
-    func hasNumbers() {
+    func hasNumbers(text: String) {
         let number = "1234567890"
         
         
@@ -195,7 +195,7 @@ class SettingsViewController: UIViewController {
                 saveButton.isEnabled = false
             } else {
               //  print("Кнопка Save раблокированя")
-                saveButton.isEnabled = false
+                saveButton.isEnabled = true
             }
             
         }
@@ -245,7 +245,9 @@ class SettingsViewController: UIViewController {
     @objc private func hideKeyboard() {
         view.endEditing(true)
         activeSaveButton()
-       // print("Do2ne")
+     //   hasNumbers()
+        
+        print("Скрытия клавы по тапу на вью")
     }
     
     private func setTextField(textField: UITextField, label: UILabel, wrongButton: UIButton? = nil, validType: String.ValidTypes, string: String, range: NSRange) {
@@ -285,18 +287,22 @@ extension SettingsViewController: UITextFieldDelegate {
         } else {
             IQKeyboardManager.shared.toolbarDoneBarButtonItemText = "Done"
         }
-       // activeSaveButton()
+       
+        saveButton.isEnabled = false
+        print("Тап на текстовое поле")
+        
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         activeSaveButton()
+        print("Тап на кнопку Return на клавиатуре")
         return true
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         activeSaveButton()
-        hasNumbers()
+      //  hasNumbers()
         print("Закончил")
     }
     
