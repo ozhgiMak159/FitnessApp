@@ -55,7 +55,7 @@ class SettingsViewController: UIViewController {
     private let wrongButton: UIButton = {
        let button = UIButton()
         button.setImage(UIImage(systemName: "questionmark.circle"), for: .normal)
-        button.isHidden = false
+        button.isHidden = true
         button.addTarget(self, action: #selector(tapAlert), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -64,7 +64,7 @@ class SettingsViewController: UIViewController {
     private let wrongButton1: UIButton = {
        let button = UIButton()
         button.setImage(UIImage(systemName: "questionmark.circle"), for: .normal)
-        button.isHidden = false
+        button.isHidden = true
         button.addTarget(self, action: #selector(tapAlert), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -166,7 +166,56 @@ class SettingsViewController: UIViewController {
             saveButton.isEnabled = false
           //  print("кнопка не активна")
         }
+        
+        
+    
+        /*
+         struct ValidNumber {
+             let numbers = "1234567890"
+             
+             func hasNumbers(text: String) -> Bool {
+                 for number in numbers {
+                     if text.contains(number) { return true }
+                 }
+                 return false
+             }
+             
+         }
+         */
     }
+    
+    
+    func hasNumbers() {
+        let number = "1234567890"
+        
+        
+        for i in number {
+            if firstNameTextField.text!.contains(i) && secondNameTextField.text!.contains(i) {
+               // print("Кнопка Save блокированя")
+                saveButton.isEnabled = false
+            } else {
+              //  print("Кнопка Save раблокированя")
+                saveButton.isEnabled = false
+            }
+            
+        }
+        
+        
+        
+        
+        
+        //            if text.contains(numb) {
+        ////                saveButton.isEnabled = false
+        //                print("Кнопка Save блокированя")
+        //            } else {
+        //               // saveButton.isEnabled = true
+        //                print("Кнопка Save разблокированя")
+        //            }
+        
+    }
+    
+    
+    
     
     @objc private func closeButtonTapped() {
         dismiss(animated: true, completion: nil)
@@ -211,7 +260,6 @@ class SettingsViewController: UIViewController {
             result = text
         }
         
-        
         textField.text = result
 
         if result.isValid(validType: validType) {
@@ -225,21 +273,6 @@ class SettingsViewController: UIViewController {
             wrongButton?.isHidden = false
             wrongButton?.tintColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
         }
-        
-        /*
-         struct ValidNumber {
-             let numbers = "1234567890"
-             
-             func hasNumbers(text: String) -> Bool {
-                 for number in numbers {
-                     if text.contains(number) { return true }
-                 }
-                 return false
-             }
-             
-         }
-         */
-
     }
     
 }
@@ -263,6 +296,8 @@ extension SettingsViewController: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         activeSaveButton()
+        hasNumbers()
+        print("Закончил")
     }
     
     
@@ -299,6 +334,8 @@ extension SettingsViewController: UITextFieldDelegate {
                 range: range
             )
             
+       // hasNumbers(text: string)
+            
         case secondNameTextField:
             setTextField(
                 textField: secondNameTextField,
@@ -308,6 +345,9 @@ extension SettingsViewController: UITextFieldDelegate {
                 string: string,
                 range: range
             )
+            
+      //  hasNumbers(text: string)
+            
         case heightTextField:
             setTextField(
                 textField: heightTextField,
@@ -338,6 +378,10 @@ extension SettingsViewController: UITextFieldDelegate {
     }
     
 }
+
+
+
+
 
 extension SettingsViewController {
     
